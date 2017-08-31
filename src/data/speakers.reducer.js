@@ -10,7 +10,7 @@ const initialState = {
 export default function (state = initialState, action) {
     switch (action.type) {
         case types.GET_SPEAKERS:
-            return { ...initialState, updated: state.updated };
+            return { ...state, isLoading: true, isBackgroundLoading: true };
         case types.SET_SPEAKERS:
             return {
                 ...state,
