@@ -4,7 +4,8 @@ const initialState = {
     isLoading: true,
     isBackgroundLoading: true,
     list: [],
-    updated: null
+    updated: null,
+    error: null
 };
 
 export default function (state = initialState, action) {
@@ -25,6 +26,13 @@ export default function (state = initialState, action) {
                 updated: action.updated || null,
                 isLoading: false,
                 isBackgroundLoading: false
+            };
+        case types.SET_SPEAKERS_ERROR:
+            return {
+                ...state,
+                isLoading: false,
+                isBackgroundLoading: false,
+                error: action.error
             };
         default:
             return state;
