@@ -2,6 +2,7 @@ import React from 'react';
 import { Root } from 'native-base/src';
 import { StackNavigator } from 'react-navigation';
 import Home from './Home';
+import Feed from './Feed';
 import Login from './Login';
 import Register from './Register';
 import Profile from './Profile';
@@ -11,6 +12,7 @@ import Person from './Person';
 
 const AppNavigator =  StackNavigator({
     Home: { screen: Home },
+    Feed: { screen: Feed },
     Login: { screen: Login },
     Register: { screen: Register },
     Profile: { screen: Profile },
@@ -18,7 +20,7 @@ const AppNavigator =  StackNavigator({
     StarWars: { screen: StarWars },
     Person: { screen: Person }
 }, {
-    initialRouteName: 'Login'
+    initialRouteName: 'Feed'
 });
 
 export default () => (

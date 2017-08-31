@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
-import user from './user.reducer';
+import speakers from './speakers.reducer';
 
 const rootReducer = combineReducers({
-    user
+    speakers
 });
 
 export default rootReducer;

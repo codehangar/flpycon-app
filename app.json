@@ -1,15 +1,15 @@
 {
   "expo": {
-    "name": "React Native Rockstarter",
-    "icon": "./src/images/codehangar.png",
+    "name": "Florida PyCon App",
+    "icon": "./src/images/flpy-icon.png",
     "version": "0.1.0",
-    "slug": "react-native-rockstarter",
+    "slug": "flpycon-app",
     "ios": {
-      "bundleIdentifier": "io.codehangar.react-native-rockstarter",
+      "bundleIdentifier": "io.codehangar.flpycon-app",
       "buildNumber": "1"
     },
     "android": {
-      "package": "io.codehangar.react-native-rockstarter",
+      "package": "io.codehangar.flpycon-app",
       "versionCode": 1,
       "permissions": [
         "ACCESS_COARSE_LOCATION",
@@ -22,7 +22,7 @@
       "backgroundColor": "#ffffff"
     },
     "loading": {
-      "icon": "./src/images/codehangar.png",
+      "icon": "./src/images/flpy-icon.png",
       "backgroundColor": "#2aa198"
     },
     "scheme": "nomadr"

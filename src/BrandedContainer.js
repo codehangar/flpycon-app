@@ -11,7 +11,7 @@ import {
 } from 'native-base/src';
 import colors from '../native-base-theme/variables/commonColor';
 
-const background = require('./images/codehangar-transparent.png');
+const background = require('./images/flpy-logo.png');
 
 export default class BrandedContainer extends React.PureComponent {
     getLowerStyles = () => {

@@ -1,11 +1,14 @@
 import { AsyncStorage } from 'react-native';
 
 export const storageKeys = {
-    AUTH_TOKEN: 'AUTH_TOKEN'
+    AUTH_TOKEN: 'AUTH_TOKEN',
+    SPEAKERS: 'SPEAKERS',
+    SPEAKERS_UPDATED_AT: 'SPEAKERS_UPDATED_AT'
 };
 
 const defaultReturn = {
-    AUTH_TOKEN: ''
+    AUTH_TOKEN: '',
+    SPEAKERS: []
 };
 
 export function isValidKey(key) {

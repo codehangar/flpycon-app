@@ -1,1 +1,3 @@
-export const SET_USER = 'SET_USER';
+export const GET_SPEAKERS = 'GET_SPEAKERS';
+export const SET_SPEAKERS = 'SET_SPEAKERS';
+export const SET_FRESH_SPEAKERS = 'SET_FRESH_SPEAKERS';
