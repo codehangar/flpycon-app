@@ -28,10 +28,6 @@ export function fetchSpeakers() {
             });
         } catch (error) {
             console.log('error', error); // eslint-disable-line no-console
-            dispatch({
-                type: types.SET_SPEAKERS,
-                error
-            });
         }
     }
 }
