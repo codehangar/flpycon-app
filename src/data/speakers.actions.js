@@ -21,13 +21,11 @@ export function fetchSpeakers() {
             const speakersUpdateAt = moment().format('h:mm A [on] MMM DD');
             await setItem(storageKeys.SPEAKERS, JSON.stringify(speakers));
             await setItem(storageKeys.SPEAKERS_UPDATED_AT, speakersUpdateAt);
-            setTimeout(() => {
-                dispatch({
-                    type: types.SET_FRESH_SPEAKERS,
-                    list: speakers,
-                    updated: speakersUpdateAt
-                });
-            }, 5000);
+            dispatch({
+                type: types.SET_FRESH_SPEAKERS,
+                list: speakers,
+                updated: speakersUpdateAt
+            });
         } catch (error) {
             console.log('error', error); // eslint-disable-line no-console
             dispatch({
