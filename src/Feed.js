@@ -38,34 +38,17 @@ class Feed extends React.Component {
         if (this.props.isBackgroundLoading) {
             return (
                 <ActivityIndicator style={styles.loading}/>
-            )
-            // return (
-            //     <Text style={{ alignSelf: 'center' }}>
-            //         <ActivityIndicator style={{ height: 10, width: 10 }}/> Refreshing from server
-            //     </Text>
-            // )
+            );
         }
         return null;
     };
 
-    renderlastUpdated = () => {
+    renderLastUpdated = () => {
         return (
             <View style={styles.lastUpdated}>
                 <Text note>Last Updated: {this.props.updated} {this.renderServerRefreshing()}</Text>
             </View>
         );
-        // return (
-        //     <Card>
-        //         <CardItem>
-        //             <Body>
-        //                 <Text note>Last Updated: {this.props.updated}</Text>
-        //                 {this.renderServerRefreshing()}
-        //                 <View style={{ alignSelf: 'center' }}>
-        //                 </View>
-        //             </Body>
-        //         </CardItem>
-        //     </Card>
-        // );
     };
 
     renderList = () => {
@@ -122,8 +105,8 @@ class Feed extends React.Component {
         const refreshControl = <RefreshControl refreshing={this.props.isLoading} onRefresh={this.props.refresh}/>;
         return (
             <Container>
-                {this.renderlastUpdated()}
-                <ScrollView refreshControl={refreshControl}>
+                {this.renderLastUpdated()}
+                <ScrollView style={styles.container}refreshControl={refreshControl}>
                     {this.renderList()}
                 </ScrollView>
             </Container>
