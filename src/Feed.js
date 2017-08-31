@@ -54,6 +54,7 @@ class Feed extends React.Component {
     renderList = () => {
         if (this.props.speakers.length) {
             return this.props.speakers.map((item, i) => {
+                const img = item.image ? { uri: item.image } : personPlaceHolder;
                 return (
                     <Card key={i}>
                         <CardItem header bordered button onPress={() => null}>
@@ -68,7 +69,7 @@ class Feed extends React.Component {
                         </CardItem>
                         <CardItem>
                             <Left>
-                                <Thumbnail source={personPlaceHolder}/>
+                                <Thumbnail source={img}/>
                                 <Body>
                                     <Text style={styles.fieldHeading}>{item.name}</Text>
                                     <Text>{item.about}</Text>
@@ -106,7 +107,7 @@ class Feed extends React.Component {
         return (
             <Container>
                 {this.renderLastUpdated()}
-                <ScrollView style={styles.container}refreshControl={refreshControl}>
+                <ScrollView style={styles.container} refreshControl={refreshControl}>
                     {this.renderList()}
                 </ScrollView>
             </Container>
