@@ -12,23 +12,35 @@ import {
     CardItem,
     Button,
     Spinner,
+    Icon,
     Thumbnail,
     Text,
     H2
 } from 'native-base/src';
 import API from './utils/api';
-import { fetchSpeakers } from './data/speakers.actions';
-// import speakers from './data/speakers';
-// console.log('speakers', speakers); // eslint-disable-line no-console
-// import UserThumbnail from './UserThumbnail';
+import { fetchEventData, fetchSpeakers } from './data/speakers.actions';
 import colors from '../native-base-theme/variables/commonColor';
 import personPlaceHolder from './images/person-placeholder.jpg';
 
 class Feed extends React.Component {
-    static navigationOptions = ({ navigation, screenProps }) => ({
-        title: `FL PyCon`,
-        headerBackTitle: null
-    });
+    static navigationOptions = ({ navigation, screenProps }) => {
+        return {
+            title: `Tracks`,
+            // headerBackTitle: null,
+            // drawerLabel: 'Home',
+            drawerIcon: ({ tintColor }) => (
+                <Icon name="ios-list-box-outline" style={{ color: tintColor }}/>
+            ),
+            // header: ({ navigate }) => ({
+            //     left: <Icon name="" onPress={() => navigate('DrawerOpen')}/>
+            // })
+            headerLeft: (
+                <View style={{ paddingLeft: 16, height: 30 }}>
+                    <Icon name="ios-menu" onPress={() => navigation.navigate('DrawerOpen')}/>
+                </View>
+            )
+        }
+    };
 
     componentWillMount() {
         this.props.refresh();
@@ -51,38 +63,45 @@ class Feed extends React.Component {
         );
     };
 
+    renderFavoriteBtn = (item) => {
+        return <Icon name="ios-star" onPress={() => this.props.toggleFavorite(item)}/>
+    };
+
     renderList = () => {
-        if (this.props.speakers.length) {
-            return this.props.speakers.map((item, i) => {
-                const img = item.image ? { uri: item.image } : personPlaceHolder;
+        if (this.props.talks.length) {
+            return this.props.talks.map((item, i) => {
+                const img = item.speaker.headshot ? { uri: item.speaker.headshot } : personPlaceHolder;
                 return (
                     <Card key={i}>
-                        <CardItem header bordered button onPress={() => null}>
+                        <CardItem bordered>
                             <Left>
                                 <Body>
-                                    <Text>{item.topic}</Text>
+                                    <Text style={styles.bold}>Track: {item.track}</Text>
                                 </Body>
                             </Left>
                             <Right>
                                 <Text note>{item.time}</Text>
                             </Right>
                         </CardItem>
-                        <CardItem>
-                            <Left>
+                        <CardItem bordered button onPress={() => this.props.navigation.navigate('Talk', { talkId: i })}>
+                            <Left style={{ width: 900 }}>
                                 <Thumbnail source={img}/>
-                                <Body>
-                                    <Text style={styles.fieldHeading}>{item.name}</Text>
-                                    <Text>{item.about}</Text>
-                                </Body>
                             </Left>
+                                <Body style={{ flex: 3 }}>
+                                    <Text style={styles.bold}>{item.title}</Text>
+                                    <Text>By {item.speaker.name}</Text>
+                                </Body>
+                            <Right>
+                                <Icon name="ios-arrow-dropright"/>
+                            </Right>
                         </CardItem>
                         <CardItem bordered>
-                            <Body>
-                                <Text style={styles.fieldHeading}>Location</Text>
+                            <Left>
                                 <Text>{item.location}</Text>
-                                <Text style={styles.fieldHeading}>Details</Text>
-                                <Text>{item.details}</Text>
-                            </Body>
+                            </Left>
+                            <Right>
+                                {this.renderFavoriteBtn()}
+                            </Right>
                         </CardItem>
                     </Card>
                 );
@@ -119,6 +138,9 @@ const styles = StyleSheet.create({
     container: {
         padding: 5
     },
+    bold: {
+        fontWeight: 'bold'
+    },
     fieldHeading: {
         fontWeight: 'bold',
         marginTop: 10
@@ -139,14 +161,17 @@ const mapStateToProps = (state) => {
         isLoading: state.speakers.isLoading,
         isBackgroundLoading: state.speakers.isBackgroundLoading,
         updated: state.speakers.updated,
-        speakers: state.speakers.list
+        talks: state.speakers.talks
     };
 };
 
 const mapDispatchToProps = (dispatch) => {
     return {
         refresh: () => {
-            dispatch(fetchSpeakers());
+            dispatch(fetchEventData());
+        },
+        toggleFavorite: () => {
+            dispatch(toggleFavorite());
         }
     };
 };

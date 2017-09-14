@@ -17,12 +17,14 @@ export default class BrandedContainer extends React.PureComponent {
     getLowerStyles = () => {
         switch (this.props.size) {
             case'sm':
-                return styles.sm;
+                return { ...styles.sm, ...this.props.lowerStyles };
             case'md':
-                return styles.md;
+                console.log('styles.md', styles.md); // eslint-disable-line no-console
+                console.log('this.props.lowerStyles', this.props.lowerStyles); // eslint-disable-line no-console
+                return { ...styles.md, ...this.props.lowerStyles };
             case'lg':
             default:
-                return styles.lg;
+                return { ...styles.lg, ...this.props.lowerStyles };
         }
     };
 
@@ -51,7 +53,8 @@ export default class BrandedContainer extends React.PureComponent {
     }
 }
 
-const styles = StyleSheet.create({
+// const styles = StyleSheet.create({
+const styles = {
     container: {
         position: 'absolute',
         top: 0,
@@ -83,4 +86,4 @@ const styles = StyleSheet.create({
         flex: 1,
         width: null
     }
-});
+};
