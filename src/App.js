@@ -29,14 +29,15 @@ const AboutNavigator = StackNavigator({
     About: { screen: About }
 });
 
-const MyPyconNavigator = StackNavigator({
+/* const MyPyconNavigator = StackNavigator({
     MyPycon: { screen: MyPycon }
-});
+}); */
+
 const AppNavigator = DrawerNavigator({
     // Home: { screen: Home },
     Agenda: { screen: AgendaNavigator },
     Tracks: { screen: FeedNavigator },
-    MyPycon: { screen: MyPyconNavigator },
+    // MyPycon: { screen: MyPyconNavigator },
     About: { screen: AboutNavigator },
     Contact: { screen: ContactNavigator }
 }, {
