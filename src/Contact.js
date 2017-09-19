@@ -39,16 +39,19 @@ class Contact extends React.Component {
         return (
             <BrandedContainer lowerStyles={lowerStyles}>
                 <View style={styles.container}>
-                    <Text>We're Here to Help</Text>
-                    <Text note>In case of emergency, please dial 911</Text>
-                    <Text>If you are a speaker and need technical assistance during the event, please shoot us an email
+                    <Text style={styles.marTop}>We're Here to Help</Text>
+                    <Text note style={styles.marTop}>In case of emergency, please dial 911</Text>
+                    <Text style={styles.fieldHeading}>SPEAKER ASSISTANCE</Text>
+                    <Text style={styles.marTop}>If you are a speaker and need technical assistance during the event,
+                        please shoot us an email
                         by clicking the button below. One of our organizers will come by to assist you as quickly as
                         possible.</Text>
-                    <Button bordered block><Text>REQUEST ASSISTANCE</Text></Button>
-                    <Text>QUESTIONS? FEEDBACK?</Text>
-                    <Text>If you have general questions or feedback, we would love to hear from you. Please send us your
+                    <Button bordered block style={styles.btn}><Text>REQUEST ASSISTANCE</Text></Button>
+                    <Text style={styles.fieldHeading}>QUESTIONS? FEEDBACK?</Text>
+                    <Text style={styles.marTop}>If you have general questions or feedback, we would love to hear from
+                        you. Please send us your
                         comments by clicking the button below. Thank you!</Text>
-                    <Button bordered block><Text>CONTACT US</Text></Button>
+                    <Button bordered block style={styles.btn}><Text>CONTACT US</Text></Button>
                 </View>
             </BrandedContainer>
         );
@@ -65,7 +68,7 @@ const styles = StyleSheet.create({
     },
     fieldHeading: {
         fontWeight: 'bold',
-        marginTop: 10
+        marginTop: 20
     },
     lastUpdated: {
         backgroundColor: colors.cardDefaultBg,
@@ -75,6 +78,13 @@ const styles = StyleSheet.create({
         height: 10,
         width: 10,
         marginLeft: 20
+    },
+    marTop: {
+        marginTop: 20
+    },
+    btn: {
+        marginTop: 20,
+        marginBottom: 20
     }
 });
 
