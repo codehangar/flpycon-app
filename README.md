@@ -50,6 +50,30 @@ and run the command:
 
 ---
 
+# RELEASES
+
+#### Pre Release Setup
+Before packaging for a release, review the configuration documentation here:
+- https://docs.expo.io/versions/latest/guides/configuration.html
+ 
+You will need to install the expo CLI
+- ` npm i -g exp`
+
+#### Building Standalone Apps
+- https://docs.expo.io/versions/latest/guides/building-standalone-apps.html
+- Update the version in two places:
+  - package.json
+  - app.json
+- Increment the build numbers in `app.json` (simply increment these by 1,)
+   - ios -> buildNumber
+   - android -> versionCode
+   
+** **Note** **: `buildNumber` and `versionCode` are simply integers that should be incremented by one for **every single build**.
+These numbers do not have a direct relationship in any way with the `version` numbers. The `version` numbers should follow 
+a normal semver pattern.  
+   
+---
+
 This project was bootstrapped with [Create React Native App](https://github.com/react-community/create-react-native-app).
 
 Below you'll find information about performing common tasks. The most recent version of this guide is available [here](https://github.com/react-community/create-react-native-app/blob/master/react-native-scripts/template/README.md).

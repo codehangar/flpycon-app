@@ -2,7 +2,7 @@
   "expo": {
     "name": "Florida PyCon App",
     "icon": "./src/images/flpy-icon.png",
-    "version": "0.1.0",
+    "version": "1.0.0",
     "slug": "flpycon-app",
     "ios": {
       "bundleIdentifier": "io.codehangar.flpycon-app",
@@ -11,10 +11,7 @@
     "android": {
       "package": "io.codehangar.flpycon-app",
       "versionCode": 1,
-      "permissions": [
-        "ACCESS_COARSE_LOCATION",
-        "ACCESS_FINE_LOCATION"
-      ]
+      "permissions": []
     },
     "sdkVersion": "20.0.0",
     "androidStatusBar": {
@@ -25,6 +22,6 @@
       "icon": "./src/images/flpy-icon.png",
       "backgroundColor": "#2aa198"
     },
-    "scheme": "nomadr"
+    "scheme": "flpycon"
   }
 }

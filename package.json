@@ -1,6 +1,6 @@
 {
   "name": "flpycon-app",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
   "devDependencies": {
     "aws-sdk": "^2.106.0",
