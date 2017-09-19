@@ -80,6 +80,36 @@
       "title": "Talks Begin",
       "time": "10:00am",
       "location": ""
+    },
+    {
+      "title": "Lunch",
+      "time": "12:00pm",
+      "location": ""
+    },
+    {
+      "title": "Talks Resume",
+      "time": "1:30pm",
+      "location": ""
+    },
+    {
+      "title": "Break",
+      "time": "3:00pm",
+      "location": ""
+    },
+    {
+      "title": "Talks Resume",
+      "time": "3:15pm",
+      "location": ""
+    },
+    {
+      "title": "Final Remarks",
+      "time": "4:45pm",
+      "location": ""
+    },
+    {
+      "title": "Bar Slither",
+      "time": "5:00pm",
+      "location": ""
     }
   ]
 }
