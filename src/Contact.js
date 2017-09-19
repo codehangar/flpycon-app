@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { StyleSheet, ActivityIndicator, ScrollView, RefreshControl } from 'react-native';
+import { StyleSheet, ActivityIndicator, ScrollView, RefreshControl, Linking } from 'react-native';
 import {
     Container,
     Content,
@@ -35,6 +35,28 @@ class Contact extends React.Component {
         )
     });
 
+    requestAssistance = () => {
+        const url = 'mailto:hello@flpy.org?subject=Speaker Assistance';
+        Linking.canOpenURL(url).then(supported => {
+            if (!supported) {
+                console.log('Can\'t handle url: ' + url);
+            } else {
+                return Linking.openURL(url);
+            }
+        }).catch(err => console.error('An error occurred', err));
+    };
+
+    contactUs = () => {
+        const url = 'mailto:hello@flpy.org?subject=Question/Feedback';
+        Linking.canOpenURL(url).then(supported => {
+            if (!supported) {
+                console.log('Can\'t handle url: ' + url);
+            } else {
+                return Linking.openURL(url);
+            }
+        }).catch(err => console.error('An error occurred', err));
+    };
+
     render() {
         return (
             <BrandedContainer lowerStyles={lowerStyles}>
@@ -43,15 +65,17 @@ class Contact extends React.Component {
                     <Text note style={styles.marTop}>In case of emergency, please dial 911</Text>
                     <Text style={styles.fieldHeading}>SPEAKER ASSISTANCE</Text>
                     <Text style={styles.marTop}>If you are a speaker and need technical assistance during the event,
-                        please shoot us an email
-                        by clicking the button below. One of our organizers will come by to assist you as quickly as
-                        possible.</Text>
-                    <Button bordered block style={styles.btn}><Text>REQUEST ASSISTANCE</Text></Button>
+                        please shoot us an email by clicking the button below. One of our organizers will come by to
+                        assist you as quickly as possible.</Text>
+                    <Button bordered block style={styles.btn} onPress={this.requestAssistance}>
+                        <Text>REQUEST ASSISTANCE</Text>
+                    </Button>
                     <Text style={styles.fieldHeading}>QUESTIONS? FEEDBACK?</Text>
                     <Text style={styles.marTop}>If you have general questions or feedback, we would love to hear from
-                        you. Please send us your
-                        comments by clicking the button below. Thank you!</Text>
-                    <Button bordered block style={styles.btn}><Text>CONTACT US</Text></Button>
+                        you. Please send us your comments by clicking the button below. Thank you!</Text>
+                    <Button bordered block style={styles.btn} onPress={this.contactUs}>
+                        <Text>CONTACT US</Text>
+                    </Button>
                 </View>
             </BrandedContainer>
         );
