@@ -33,6 +33,23 @@ The core libraries being used are:
 
 ---
 
+# Managing Data
+
+If you want to add to the dynamic data, see the `/tools/json-data/event.json` 
+It’s not loading directly from that file, but we're keeping the changes there.  
+It needs to be uploaded to S3 for the app to see it.
+ 
+To trigger an upload of the `event.json` to S3 you’ll a .env file:
+```
+AWS_ACCESS_KEY={ask Ian}
+AWS_SECRET_KEY={ask Ian}
+S3_BUCKET=flpycon
+```
+and run the command:
+`npm run data`
+
+---
+
 This project was bootstrapped with [Create React Native App](https://github.com/react-community/create-react-native-app).
 
 Below you'll find information about performing common tasks. The most recent version of this guide is available [here](https://github.com/react-community/create-react-native-app/blob/master/react-native-scripts/template/README.md).
