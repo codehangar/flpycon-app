@@ -41,6 +41,9 @@ class About extends React.Component {
                 <View style={styles.container}>
                     <H1>Florida's First Python Conference</H1>
                     <Button bordered block><Text>WEBSITE</Text></Button>
+					<Text>Florida PyCon is Florida’s first and only regional Python language conference, hosted in Orlando, Florida.</Text>
+					<Text>We will have talks and workshops covering all things Python including three primary tracks: Web, Data Science, and Speaker’s Choice.</Text>
+					<Text>This is our first year, which means we are keeping the scope small to provide a better experience for attendees. This means we will be capping attendance at 250 people and will not be providing assistance with lodging.</Text>
                 </View>
             </BrandedContainer>
         );
