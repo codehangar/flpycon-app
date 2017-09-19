@@ -73,9 +73,10 @@ class Agenda extends React.Component {
     };
 
     render() {
+        const refreshControl = <RefreshControl refreshing={this.props.isLoading} onRefresh={this.props.refresh}/>;
         return (
             <Container>
-                <ScrollView style={styles.container}>
+                <ScrollView contentContainerStyle={styles.container} refreshControl={refreshControl}>
                     {this.renderList()}
                 </ScrollView>
             </Container>
@@ -104,11 +105,10 @@ const styles = StyleSheet.create({
 });
 
 const mapStateToProps = (state) => {
-    console.log('state', state); // eslint-disable-line no-console
     return {
-        // isLoading: state.speakers.isLoading,
-        // isBackgroundLoading: state.speakers.isBackgroundLoading,
-        // updated: state.speakers.updated,
+        isLoading: state.speakers.isLoading,
+        isBackgroundLoading: state.speakers.isBackgroundLoading,
+        updated: state.speakers.updated,
         agenda: state.speakers.agenda
     };
 };

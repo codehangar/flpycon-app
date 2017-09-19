@@ -71,6 +71,7 @@ export default function (path, options = {}) {
             const defaultOptions = {
                 headers: {
                     'Content-Type': 'application/json',
+                    'Cache-Control': 'no-cache',
                     'x-access-token': token,
                     'x-auth-token': token
                 }
