@@ -9,7 +9,7 @@
       "buildNumber": "1"
     },
     "android": {
-      "package": "io.codehangar.flpycon-app",
+      "package": "io.codehangar.flpycon_app",
       "versionCode": 1,
       "permissions": []
     },
