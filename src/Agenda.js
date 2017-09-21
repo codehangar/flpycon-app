@@ -45,11 +45,13 @@ class Agenda extends React.Component {
             return this.props.agenda.map((item, i) => {
                 return (
                     <Card key={i}>
-                        <CardItem>
-                            <Body style={styles.flex3}>
-                                <Text style={styles.title}>{item.title}</Text>
-                                <Text note>{item.location}</Text>
-                            </Body>
+                        <CardItem header>
+                            <Left>
+                                <Body>
+                                    <Text style={styles.title}>{item.title}</Text>
+                                    <Text note>{item.location}</Text>
+                                </Body>
+                            </Left>
                             <Right>
                                 <Text note>{item.time}</Text>
                             </Right>
