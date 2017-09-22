@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "Florida PyCon App",
-    "icon": "./src/images/flpy-icon.png",
+    "icon": "./src/images/iTunesArtwork.png",
     "version": "1.0.0",
     "slug": "flpycon-app",
     "ios": {
@@ -20,7 +20,8 @@
     },
     "loading": {
       "icon": "./src/images/flpy-icon.png",
-      "backgroundColor": "#2aa198"
+      "backgroundImage": "./src/images/background.png",
+      "hideExponentText": true
     },
     "scheme": "flpycon"
   }
