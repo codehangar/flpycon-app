@@ -27,9 +27,11 @@ import personPlaceHolder from './images/person-placeholder.jpg';
 
 class Feed extends React.Component {
     static navigationOptions = ({ navigation, screenProps }) => ({
-        title: `Talk Details`,
+        title: `Talk Detailsss`,
         headerBackTitle: null,
-        headerRight: <Button iconLeft transparent primary><Icon name='ios-star-outline'/></Button>
+        headerTintColor: "#efa320",
+        headerTitleStyle: { color: null },
+        headerRight: <Button iconLeft transparent><Icon name='ios-star-outline'/></Button>
     });
 
     renderList = () => {

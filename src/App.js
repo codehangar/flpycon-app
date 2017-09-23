@@ -45,14 +45,13 @@ const goToURL = () => {
 }
 
 const AppNavigator = DrawerNavigator({
-    // Home: { screen: Home },
     Agenda: { screen: AgendaNavigator },
     Tracks: { screen: FeedNavigator },
     MyPycon: { screen: MyPyconNavigator },
     About: { screen: AboutNavigator },
     Contact: { screen: ContactNavigator }
 }, {
-    initialRouteName: 'Agenda',
+    initialRouteName: 'Tracks',
     contentComponent: props => (
         <BrandedContainer size="md" lowerStyles={styles.lowerStyles}>
             <Text style={styles.welcome}>Welcome to Florida Pycon 2017!</Text>

@@ -15,7 +15,10 @@ import {
     Icon,
     Thumbnail,
     Text,
-    H2
+    H2,
+    Tabs,
+    Tab,
+    ScrollableTab
 } from 'native-base/src';
 import API from './utils/api';
 import { fetchEventData, fetchSpeakers } from './data/speakers.actions';
@@ -26,14 +29,10 @@ class Feed extends React.Component {
     static navigationOptions = ({ navigation, screenProps }) => {
         return {
             title: `Tracks`,
-            // headerBackTitle: null,
-            // drawerLabel: 'Home',
             drawerIcon: ({ tintColor }) => (
                 <Icon name="ios-list-box-outline" style={{ color: tintColor }}/>
             ),
-            // header: ({ navigate }) => ({
-            //     left: <Icon name="" onPress={() => navigate('DrawerOpen')}/>
-            // })
+
             headerLeft: (
                 <View style={{ paddingLeft: 16, height: 30 }}>
                     <Icon name="ios-menu" onPress={() => navigation.navigate('DrawerOpen')}/>
@@ -92,7 +91,7 @@ class Feed extends React.Component {
                                     <Text>By {item.speaker.name}</Text>
                                 </Body>
                             <Right>
-                                <Icon name="ios-arrow-dropright"/>
+                                <Icon name="ios-arrow-forward"/>
                             </Right>
                         </CardItem>
                         <CardItem bordered>
@@ -125,10 +124,23 @@ class Feed extends React.Component {
         const refreshControl = <RefreshControl refreshing={this.props.isLoading} onRefresh={this.props.refresh}/>;
         return (
             <Container>
-                {this.renderLastUpdated()}
-                <ScrollView style={styles.container} refreshControl={refreshControl}>
-                    {this.renderList()}
-                </ScrollView>
+                <Tabs initialPage={0} renderTabBar={()=> <ScrollableTab />}>
+                    <Tab heading="All Tracks">
+                        {/*{this.renderLastUpdated()}*/}
+                        <ScrollView style={styles.container} refreshControl={refreshControl}>
+                          {this.renderList()}
+                        </ScrollView>
+                    </Tab>
+                    <Tab heading="Data">
+                        <View />
+                    </Tab>
+                    <Tab heading="Web">
+                        <View />
+                    </Tab>
+                    <Tab heading="Speaker's Choice">
+                        <View />
+                    </Tab>
+                </Tabs>
             </Container>
         );
     }
@@ -136,7 +148,8 @@ class Feed extends React.Component {
 
 const styles = StyleSheet.create({
     container: {
-        padding: 5
+        padding: 5,
+        backgroundColor: "#e9e9ef"
     },
     bold: {
         fontWeight: 'bold'

@@ -41,7 +41,7 @@ class MyPycon extends React.Component {
     render() {
         return (
             <Container>
-                <Tabs initialPage={1}>
+                <Tabs initialPage={0}>
                     <Tab heading="My Agenda">
                         <View />
                     </Tab>
