@@ -84,7 +84,7 @@
     {
       "title": "Lunch",
       "time": "12:00pm",
-      "location": ""
+      "location": "Location TBD"
     },
     {
       "title": "Talks Resume",
@@ -104,12 +104,12 @@
     {
       "title": "Final Remarks",
       "time": "4:45pm",
-      "location": ""
+      "location": "Location TBD"
     },
     {
       "title": "Bar Slither",
       "time": "5:00pm",
-      "location": ""
+      "location": "Location TBD"
     }
   ]
 }
