@@ -27,7 +27,7 @@ import BrandedContainer from './BrandedContainer';
 
 class MyPycon extends React.Component {
     static navigationOptions = ({ navigation, screenProps }) => ({
-        title: `My gitPycon`,
+        title: `My Pycon`,
         drawerIcon: ({ tintColor }) => (
             <Icon name="ios-star-outline" style={{ color: tintColor }}/>
         ),
