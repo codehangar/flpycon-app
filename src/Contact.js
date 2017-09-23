@@ -1,25 +1,13 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { StyleSheet, ActivityIndicator, ScrollView, RefreshControl, Linking } from 'react-native';
+import { StyleSheet, Linking } from 'react-native';
 import {
-    Container,
-    Content,
-    Body,
-    Left,
-    Right,
     View,
-    Card,
-    CardItem,
     Button,
-    Spinner,
     Icon,
-    Thumbnail,
     Text,
     H2
 } from 'native-base/src';
-import API from './utils/api';
 import colors from '../native-base-theme/variables/commonColor';
-import personPlaceHolder from './images/person-placeholder.jpg';
 import BrandedContainer from './BrandedContainer';
 
 class Contact extends React.Component {
@@ -61,19 +49,19 @@ class Contact extends React.Component {
         return (
             <BrandedContainer lowerStyles={lowerStyles}>
                 <View style={styles.container}>
-                    <Text style={styles.marTop}>We're Here to Help</Text>
-                    <Text note style={styles.marTop}>In case of emergency, please dial 911</Text>
+                    <H2 style={styles.marTop}>We're Here to Help</H2>
+                    <Text note style={styles.note}>In case of emergency, please dial 911</Text>
                     <Text style={styles.fieldHeading}>SPEAKER ASSISTANCE</Text>
                     <Text style={styles.marTop}>If you are a speaker and need technical assistance during the event,
                         please shoot us an email by clicking the button below. One of our organizers will come by to
                         assist you as quickly as possible.</Text>
-                    <Button bordered block style={styles.btn} onPress={this.requestAssistance}>
+                    <Button success bordered block style={styles.btn} onPress={this.requestAssistance}>
                         <Text>REQUEST ASSISTANCE</Text>
                     </Button>
                     <Text style={styles.fieldHeading}>QUESTIONS? FEEDBACK?</Text>
                     <Text style={styles.marTop}>If you have general questions or feedback, we would love to hear from
                         you. Please send us your comments by clicking the button below. Thank you!</Text>
-                    <Button bordered block style={styles.btn} onPress={this.contactUs}>
+                    <Button success bordered block style={styles.btn} onPress={this.contactUs}>
                         <Text>CONTACT US</Text>
                     </Button>
                 </View>
@@ -84,7 +72,7 @@ class Contact extends React.Component {
 
 const styles = StyleSheet.create({
     container: {
-        padding: 5,
+        padding:20,
         alignItems: 'center'
     },
     bold: {
@@ -106,6 +94,10 @@ const styles = StyleSheet.create({
     marTop: {
         marginTop: 20
     },
+    note: {
+      marginTop: 20,
+      fontStyle: "italic"
+    },
     btn: {
         marginTop: 20,
         marginBottom: 20
@@ -113,25 +105,9 @@ const styles = StyleSheet.create({
 });
 
 const lowerStyles = {
-    justifyContent: 'flex-start'
-    // marginHorizontal: 0
+    justifyContent: 'flex-start',
+    backgroundColor: "#fff",
+    marginHorizontal: 0
 };
 
-const mapStateToProps = (state) => {
-    return {
-        // isLoading: state.speakers.isLoading,
-        // isBackgroundLoading: state.speakers.isBackgroundLoading,
-        // updated: state.speakers.updated,
-        talks: state.speakers.talks
-    };
-};
-
-const mapDispatchToProps = (dispatch) => {
-    return {
-        toggleFavorite: () => {
-            dispatch(toggleFavorite());
-        }
-    };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Contact);
+export default Contact;

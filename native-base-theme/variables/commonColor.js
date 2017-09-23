@@ -111,7 +111,7 @@ export default {
   brandPrimary: "#2aa198",
   // brandInfo: "#268bd2",
   brandInfo: "#6c71c4",
-  brandSuccess: "#859900",
+  brandSuccess: "#39b54a",
   brandDanger: "#dc322f",
   brandWarning: "#b58900",
   brandSidebar: "#002b36",
@@ -175,7 +175,7 @@ export default {
   // InputGroup
   inputFontSize: 17,
   inputBorderColor: "#D9D5DC",
-  inputSuccessBorderColor: "#2b8339",
+  inputSuccessBorderColor: "#39b54a",
   inputErrorBorderColor: "#ed2f2f",
 
   get inputColor() {
