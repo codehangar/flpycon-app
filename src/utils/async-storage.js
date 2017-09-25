@@ -6,14 +6,16 @@ export const storageKeys = {
     EVENT_DATA: 'EVENT_DATA',
     SPEAKERS_UPDATED_AT: 'SPEAKERS_UPDATED_AT',
     EVENT_DATA_UPDATED_AT: 'EVENT_DATA_UPDATED_AT',
-    NOTES: 'NOTES'
+    NOTES: 'NOTES',
+    FAVORITES: 'FAVORITES'
 };
 
 const defaultReturn = {
     AUTH_TOKEN: '',
     SPEAKERS: [],
     EVENT_DATA: {},
-    NOTES: {}
+    NOTES: {},
+    FAVORITES: {}
 };
 
 export function isValidKey(key) {

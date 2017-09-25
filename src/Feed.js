@@ -24,6 +24,7 @@ import API from './utils/api';
 import { fetchEventData, fetchSpeakers } from './data/speakers.actions';
 import colors from '../native-base-theme/variables/commonColor';
 import personPlaceHolder from './images/person-placeholder.jpg';
+import { getAllFavorites, setFavorite } from './utils/favorites-storage';
 
 class Feed extends React.Component {
     static navigationOptions = ({ navigation, screenProps }) => {
@@ -41,8 +42,20 @@ class Feed extends React.Component {
         }
     };
 
-    componentWillMount() {
+    state = {
+        favorites: {}
+    };
+
+    async componentWillMount() {
         this.props.refresh();
+        const favorites = await getAllFavorites();
+        this.setState({ favorites });
+    }
+
+    async toggleFavorite(item) {
+        await setFavorite(item.id);
+        const favorites = await getAllFavorites();
+        this.setState({ favorites });
     }
 
     renderServerRefreshing = () => {
@@ -63,7 +76,11 @@ class Feed extends React.Component {
     };
 
     renderFavoriteBtn = (item) => {
-        return <Icon name="ios-star" onPress={() => this.props.toggleFavorite(item)}/>
+        if (this.state.favorites[item.id]) {
+            return <Icon style={styles.star} name="ios-star" onPress={() => this.toggleFavorite(item)}/>
+        } else {
+            return <Icon style={styles.star} name="ios-star-outline" onPress={() => this.toggleFavorite(item)}/>
+        }
     };
 
     renderList = () => {
@@ -82,7 +99,8 @@ class Feed extends React.Component {
                                 <Text note>{item.time}</Text>
                             </Right>
                         </CardItem>
-                        <CardItem header bordered button onPress={() => this.props.navigation.navigate('Talk', { talkId: item.id })}>
+                        <CardItem header bordered button
+                                  onPress={() => this.props.navigation.navigate('Talk', { talkId: item.id })}>
                             <Left style={{ width: 900 }}>
                                 <Thumbnail source={img}/>
                                 <Body style={{ flex: 3 }}>
@@ -99,7 +117,7 @@ class Feed extends React.Component {
                                 <Text>{item.location}</Text>
                             </Left>
                             <Right>
-                                {this.renderFavoriteBtn()}
+                                {this.renderFavoriteBtn(item)}
                             </Right>
                         </CardItem>
                     </Card>
@@ -124,21 +142,21 @@ class Feed extends React.Component {
         const refreshControl = <RefreshControl refreshing={this.props.isLoading} onRefresh={this.props.refresh}/>;
         return (
             <Container>
-                <Tabs initialPage={0} renderTabBar={()=> <ScrollableTab />}>
+                <Tabs initialPage={0} renderTabBar={() => <ScrollableTab/>}>
                     <Tab heading="All Tracks">
                         {/*{this.renderLastUpdated()}*/}
                         <ScrollView style={styles.container} refreshControl={refreshControl}>
-                          {this.renderList()}
+                            {this.renderList()}
                         </ScrollView>
                     </Tab>
                     <Tab heading="Data">
-                        <View />
+                        <View/>
                     </Tab>
                     <Tab heading="Web">
-                        <View />
+                        <View/>
                     </Tab>
                     <Tab heading="Speaker's Choice">
-                        <View />
+                        <View/>
                     </Tab>
                 </Tabs>
             </Container>
@@ -149,7 +167,7 @@ class Feed extends React.Component {
 const styles = StyleSheet.create({
     container: {
         padding: 5,
-        backgroundColor: "#e9e9ef"
+        backgroundColor: '#e9e9ef'
     },
     bold: {
         fontWeight: 'bold'
@@ -166,6 +184,9 @@ const styles = StyleSheet.create({
         height: 10,
         width: 10,
         marginLeft: 20
+    },
+    star: {
+        color: colors.brandPrimary
     }
 });
 
@@ -182,9 +203,6 @@ const mapDispatchToProps = (dispatch) => {
     return {
         refresh: () => {
             dispatch(fetchEventData());
-        },
-        toggleFavorite: () => {
-            dispatch(toggleFavorite());
         }
     };
 };
