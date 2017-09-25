@@ -9,8 +9,10 @@ import {
     Right,
     View,
     Card,
+    CardItem,
     H1,
     Button,
+    ListItem,
     Spinner,
     Icon,
     Thumbnail,
@@ -24,6 +26,7 @@ import API from './utils/api';
 import colors from '../native-base-theme/variables/commonColor';
 import personPlaceHolder from './images/person-placeholder.jpg';
 import BrandedContainer from './BrandedContainer';
+import { getAllNotes } from './utils/notes-storage';
 
 class MyPycon extends React.Component {
     static navigationOptions = ({ navigation, screenProps }) => ({
@@ -38,15 +41,93 @@ class MyPycon extends React.Component {
         )
     });
 
+    state = {
+        notes: {}
+    };
+
+    async componentWillMount() {
+        const notes = await getAllNotes();
+        this.setState({ notes });
+    }
+
+    renderMyNotesCustom() {
+        if (this.state.notes && this.props.talks) {
+            const talksWithNotes = this.props.talks.filter((t) => !!this.state.notes[t.id]);
+            console.log('talksWithNotes', talksWithNotes); // eslint-disable-line no-console
+            return talksWithNotes.map((item) => {
+                const img = item.speaker.headshot ? { uri: item.speaker.headshot } : personPlaceHolder;
+                return (
+                    <Card key={item.id}>
+                        <CardItem header bordered button
+                                  onPress={() => this.props.navigation.navigate('Talk', { talkId: item.id })}>
+                            <View style={{ flexDirection: 'row', flex: 1 }}>
+                                <View style={{ paddingRight: 10 }}>
+                                    <Thumbnail source={img}/>
+                                </View>
+                                <View style={{ flex: 1, justifyContent: 'center' }}>
+                                    <Text style={styles.bold}>{item.title}</Text>
+                                </View>
+                                <View style={{ paddingLeft: 10, flexDirection: 'column', justifyContent: 'center' }}>
+                                    <Right>
+                                        <Icon style={{
+                                            fontSize: colors.iconFontSize - 8,
+                                            color: colors.cardBorderColor
+                                        }} name="ios-arrow-forward"/></Right>
+                                </View>
+                            </View>
+                        </CardItem>
+                    </Card>
+                );
+            });
+        }
+    }
+
+    renderMyNotes() {
+        if (this.state.notes && this.props.talks) {
+            const talksWithNotes = this.props.talks.filter((t) => !!this.state.notes[t.id]);
+            return talksWithNotes.map((item) => {
+                const img = item.speaker.headshot ? { uri: item.speaker.headshot } : personPlaceHolder;
+                return (
+                    <Card key={item.id}>
+                        <CardItem header bordered>
+                            <Left>
+                                <Body>
+                                    <Text style={styles.bold}>Track: {item.track}</Text>
+                                </Body>
+                            </Left>
+                            <Right>
+                                <Text note>{item.time}</Text>
+                            </Right>
+                        </CardItem>
+                        <CardItem header bordered button onPress={() => this.props.navigation.navigate('Talk', { talkId: item.id })}>
+                            <Left style={{ width: 900 }}>
+                                <Thumbnail source={img}/>
+                                <Body style={{ flex: 3 }}>
+                                    <Text style={styles.bold}>{item.title}</Text>
+                                    <Text>By {item.speaker.name}</Text>
+                                </Body>
+                            </Left>
+                            <Right>
+                                <Icon name="ios-arrow-forward"/>
+                            </Right>
+                        </CardItem>
+                    </Card>
+                );
+            });
+        }
+    }
+
     render() {
         return (
             <Container>
                 <Tabs initialPage={0}>
                     <Tab heading="My Agenda">
-                        <View />
+                        <View/>
                     </Tab>
                     <Tab heading="My Notes">
-                        <View />
+                        <ScrollView style={styles.container}>
+                            {this.renderMyNotes()}
+                        </ScrollView>
                     </Tab>
                 </Tabs>
             </Container>
@@ -56,8 +137,7 @@ class MyPycon extends React.Component {
 
 const styles = StyleSheet.create({
     container: {
-        padding: 5,
-        alignItems: 'center'
+        padding: 5
     },
     bold: {
         fontWeight: 'bold'

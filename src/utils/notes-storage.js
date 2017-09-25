@@ -7,8 +7,20 @@ export async function getNotes(talkId) {
     let val = '';
     try {
         const allNotesStr = await getItem(storageKeys.NOTES);
-        const allNotes = JSON.parse(allNotesStr);
+        const allNotes = JSON.parse(allNotesStr) || {};
         val = allNotes[talkId];
+    } catch (error) {
+        console.error('NotesStorage error: ' + error.message);
+    }
+    return val;
+}
+
+export async function getAllNotes() {
+    let val = '';
+    try {
+        const allNotesStr = await getItem(storageKeys.NOTES);
+        const allNotes = JSON.parse(allNotesStr) || {};
+        val = allNotes;
     } catch (error) {
         console.error('NotesStorage error: ' + error.message);
     }

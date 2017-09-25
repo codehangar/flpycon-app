@@ -30,7 +30,10 @@ const AboutNavigator = StackNavigator({
 });
 
 const MyPyconNavigator = StackNavigator({
-    MyPycon: { screen: MyPycon }
+    MyPycon: { screen: MyPycon },
+    Talk: { screen: Talk }
+}, {
+    initialRouteName: 'MyPycon'
 });
 
 const goToURL = () => {
