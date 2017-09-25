@@ -72,7 +72,7 @@ class Feed extends React.Component {
                 const img = item.speaker.headshot ? { uri: item.speaker.headshot } : personPlaceHolder;
                 return (
                     <Card key={i}>
-                        <CardItem bordered>
+                        <CardItem header bordered>
                             <Left>
                                 <Body>
                                     <Text style={styles.bold}>Track: {item.track}</Text>
@@ -82,19 +82,19 @@ class Feed extends React.Component {
                                 <Text note>{item.time}</Text>
                             </Right>
                         </CardItem>
-                        <CardItem bordered button onPress={() => this.props.navigation.navigate('Talk', { talkId: i })}>
+                        <CardItem header bordered button onPress={() => this.props.navigation.navigate('Talk', { talkId: i })}>
                             <Left style={{ width: 900 }}>
                                 <Thumbnail source={img}/>
-                            </Left>
                                 <Body style={{ flex: 3 }}>
                                     <Text style={styles.bold}>{item.title}</Text>
                                     <Text>By {item.speaker.name}</Text>
                                 </Body>
+                            </Left>
                             <Right>
                                 <Icon name="ios-arrow-forward"/>
                             </Right>
                         </CardItem>
-                        <CardItem bordered>
+                        <CardItem header bordered>
                             <Left>
                                 <Text>{item.location}</Text>
                             </Left>
