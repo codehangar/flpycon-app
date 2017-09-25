@@ -24,19 +24,34 @@ import {
 import API from './utils/api';
 import colors from '../native-base-theme/variables/commonColor';
 import personPlaceHolder from './images/person-placeholder.jpg';
+import { getNotes, setNotes } from './utils/notes-storage';
 
 class Feed extends React.Component {
     static navigationOptions = ({ navigation, screenProps }) => ({
         title: `Talk Detailsss`,
         headerBackTitle: null,
-        headerTintColor: "#efa320",
+        headerTintColor: '#efa320',
         headerTitleStyle: { color: null },
         headerRight: <Button iconLeft transparent><Icon name='ios-star-outline'/></Button>
     });
 
+    state = {
+        notes: ''
+    };
+
+    async componentWillMount() {
+        const notes = await getNotes(this.props.navigation.state.params.talkId);
+        this.setState({ notes });
+    }
+
+    updateNotes = async (notes) => {
+        this.setState({ notes });
+        await setNotes(this.props.navigation.state.params.talkId, notes);
+    };
+
     renderList = () => {
         if (this.props.talks) {
-            const talk = this.props.talks[this.props.navigation.state.params.talkId];
+            const talk = this.props.talks.find((t) => t.id === this.props.navigation.state.params.talkId);
             const img = talk.speaker.headshot ? { uri: talk.speaker.headshot } : personPlaceHolder;
             return (
                 <View>
@@ -56,7 +71,11 @@ class Feed extends React.Component {
                     </View>
                     <View style={styles.section}>
                         <Text style={styles.fieldHeading}>NOTES</Text>
-                        <Input style={styles.input} multiline placeholder='Enter notes...'/>
+                        <Input style={styles.input} multiline
+                               placeholder='Enter notes...'
+                               value={this.state.notes}
+                               onChangeText={this.updateNotes}
+                        />
                     </View>
                 </View>
             );

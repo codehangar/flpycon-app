@@ -6,6 +6,7 @@
   ],
   "talks": [
     {
+      "id": "asteroids",
       "title": "Detecting Asteroids with Neural Networks",
       "description": "TensorFlow is an open-source software library for Machine Intelligence. In this talk, we will learn how to use it to build and train a neural network with the goal of correctly identifying asteroids in astrophotography data. The dataset used will be from the Sloan Digital Sky Survey, one of the most ambitious and influential surveys in the history of astronomy.\n\nUsing this data, we will learn how to create and featurize a training dataset, build and fit a neural network, and train our model to correctly identify asteroids visible from Earth.\n\nThis talk is for a wide range of Python developers, from those who have heard of machine learning, but have never experimented with it, to those who have significant experience with neural networks, but have never used TensorFlow before.\n\nThe audience should have some basic Python knowledge, but no formal or informal experience with machine intelligence is assumed.\n\nAfter watching this talk, the audience should know how to determine and develop features, how and why to build a training dataset, how to build and train a neural network, and some other approaches to supervised learning.",
       "time": "11:00am",
@@ -25,6 +26,7 @@
       }
     },
     {
+      "id": "swiss_train",
       "title": "Swiss Train Deployments",
       "description": "A Swiss Train deployment is a general-purpose deployment philosophy based on ideas from the Ember.js development process, modern browser releases, and various open-source project releases, such as the Ubuntu project.\n\nIn this talk, we’ll explore the motivation for a Swiss Train style deployment, the problems which it seeks to solve in existing deployment philosophies, and the core philosophy of a Swiss Train deployment.\n\nThis talk is for developers who are responsible for deploying code (not just Python!) to production in a timely manner, while still providing a stable ecosystem for their users.\n\nThe only background knowledge required is some amount of experience “deploying” code or releasing applications, whatever that may mean for an individual developer (essentially, this will allow the audience member to better empathize with the inefficiencies of current deployment philosophies (or lack thereof) and highlight the advantage of the proposed philosophy.\n\nAfter watching this talk, the audience should be able to: – understand why it is important to have a deployment philosophy – see the inefficiencies in current deployment philosophies – present a strong argument for adopting Swiss Train style deployments – be able to implement the deployment philosophy in their own workflow.",
       "time": "12:00pm",
@@ -44,6 +46,7 @@
       }
     },
     {
+      "id": "cm2",
       "title": "How to quickly build feature-rich interactive command-line applications with cmd2",
       "description": "cmd2 is a tool for building interactive command line applications in Python. Its goal is to make it quick and easy for developers to build feature-rich and user-friendly interactive command line applications. It provides a simple API which is an extension of Python’s built-in cmd module. cmd2 provides a wealth of features on top of cmd to make your life easier and eliminates much of the boilerplate code which would be necessary when using cmd.",
       "time": "2:00pm",

@@ -82,7 +82,7 @@ class Feed extends React.Component {
                                 <Text note>{item.time}</Text>
                             </Right>
                         </CardItem>
-                        <CardItem header bordered button onPress={() => this.props.navigation.navigate('Talk', { talkId: i })}>
+                        <CardItem header bordered button onPress={() => this.props.navigation.navigate('Talk', { talkId: item.id })}>
                             <Left style={{ width: 900 }}>
                                 <Thumbnail source={img}/>
                                 <Body style={{ flex: 3 }}>
