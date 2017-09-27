@@ -13,7 +13,7 @@ import {
 } from 'native-base/src';
 import colors from '../native-base-theme/variables/commonColor';
 
-const background = require('./images/banner-orl.jpg');
+const background = require('./images/flpy-gradient.png');
 console.log('background', background); // eslint-disable-line no-console
 const logo = require('./images/flpy-logo.png');
 
