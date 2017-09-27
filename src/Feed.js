@@ -3,22 +3,19 @@ import { connect } from 'react-redux';
 import { StyleSheet, ActivityIndicator, ScrollView, RefreshControl } from 'react-native';
 import {
     Container,
-    Content,
     Body,
     Left,
     Right,
     View,
     Card,
     CardItem,
-    Button,
-    Spinner,
     Icon,
     Thumbnail,
     Text,
-    H2,
     Tabs,
     Tab,
-    ScrollableTab
+    ScrollableTab,
+    Toast
 } from 'native-base/src';
 import API from './utils/api';
 import { fetchEventData, fetchSpeakers } from './data/speakers.actions';
@@ -43,7 +40,8 @@ class Feed extends React.Component {
     };
 
     state = {
-        favorites: {}
+        favorites: {},
+        showToast: false
     };
 
     async componentWillMount() {
@@ -53,9 +51,16 @@ class Feed extends React.Component {
     }
 
     async toggleFavorite(item) {
-        await setFavorite(item.id);
+        const res = await setFavorite(item.id);
         const favorites = await getAllFavorites();
         this.setState({ favorites });
+        console.log(res);
+        Toast.show({
+            text: res,
+            position: 'bottom',
+            buttonText: 'Okay',
+            // duration: 3000
+        })
     }
 
     renderServerRefreshing = () => {
