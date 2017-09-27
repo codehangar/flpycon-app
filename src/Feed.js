@@ -106,7 +106,7 @@ class Feed extends React.Component {
                         </CardItem>
                         <CardItem header bordered button
                                   onPress={() => this.props.navigation.navigate('Talk', { talkId: item.id })}>
-                            <Left style={{ width: 900 }}>
+                            <Left style={{ width: 1200 }}>
                                 <Thumbnail source={img}/>
                                 <Body style={{ flex: 3 }}>
                                     <Text style={styles.bold}>{item.title}</Text>

@@ -86,7 +86,18 @@ class MyPycon extends React.Component {
     renderMyAgenda() {
         if (this.state.favorites && this.props.talks) {
             const favoritedTalks = this.props.talks.filter((t) => !!this.state.favorites[t.id]);
+          console.log('------------------------------', favoritedTalks);
+          if(favoritedTalks.length){
             return favoritedTalks.map(this.renderTalkItem);
+          }else {
+            return (
+              <Card>
+                <CardItem>
+                  <Text>You have no saved talks. Go to the Tracks list to save a talk.</Text>
+                </CardItem>
+              </Card>
+            )
+          }
         }
     }
 
@@ -125,7 +136,17 @@ class MyPycon extends React.Component {
     renderMyNotes() {
         if (this.state.notes && this.props.talks) {
             const talksWithNotes = this.props.talks.filter((t) => !!this.state.notes[t.id]);
+          if(talksWithNotes.length){
             return talksWithNotes.map(this.renderTalkItem);
+          } else {
+            return (
+              <Card>
+                <CardItem>
+                  <Text>You haven't taken any notes. Scroll to the bottom of a talk's details to take notes on that talk.</Text>
+                </CardItem>
+              </Card>
+            )
+          }
         }
     }
 
@@ -151,7 +172,8 @@ class MyPycon extends React.Component {
 
 const styles = StyleSheet.create({
     container: {
-        padding: 5
+        padding: 5,
+        backgroundColor: '#e9e9ef'
     },
     bold: {
         fontWeight: 'bold'
