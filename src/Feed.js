@@ -17,11 +17,10 @@ import {
     ScrollableTab,
     Toast
 } from 'native-base/src';
-import API from './utils/api';
 import { fetchEventData, fetchSpeakers } from './data/speakers.actions';
 import colors from '../native-base-theme/variables/commonColor';
 import personPlaceHolder from './images/person-placeholder.jpg';
-import { getAllFavorites, setFavorite } from './utils/favorites-storage';
+import { fetchFavorites, saveFavorite } from './data/favorites.actions';
 
 class Feed extends React.Component {
     static navigationOptions = ({ navigation, screenProps }) => {
@@ -39,28 +38,8 @@ class Feed extends React.Component {
         }
     };
 
-    state = {
-        favorites: {},
-        showToast: false
-    };
-
     async componentWillMount() {
         this.props.refresh();
-        const favorites = await getAllFavorites();
-        this.setState({ favorites });
-    }
-
-    async toggleFavorite(item) {
-        const res = await setFavorite(item.id);
-        const favorites = await getAllFavorites();
-        this.setState({ favorites });
-        console.log(res);
-        Toast.show({
-            text: res,
-            position: 'bottom',
-            buttonText: 'Okay',
-            // duration: 3000
-        })
     }
 
     renderServerRefreshing = () => {
@@ -81,10 +60,10 @@ class Feed extends React.Component {
     };
 
     renderFavoriteBtn = (item) => {
-        if (this.state.favorites[item.id]) {
-            return <Icon style={styles.star} name="ios-star" onPress={() => this.toggleFavorite(item)}/>
+        if (this.props.favorites[item.id]) {
+            return <Icon style={styles.star} name="ios-star" onPress={() => this.props.saveFavorite(item.id)}/>
         } else {
-            return <Icon style={styles.star} name="ios-star-outline" onPress={() => this.toggleFavorite(item)}/>
+            return <Icon style={styles.star} name="ios-star-outline" onPress={() => this.props.saveFavorite(item.id)}/>
         }
     };
 
@@ -200,7 +179,8 @@ const mapStateToProps = (state) => {
         isLoading: state.speakers.isLoading,
         isBackgroundLoading: state.speakers.isBackgroundLoading,
         updated: state.speakers.updated,
-        talks: state.speakers.talks
+        talks: state.speakers.talks,
+        favorites: state.favorites
     };
 };
 
@@ -208,6 +188,10 @@ const mapDispatchToProps = (dispatch) => {
     return {
         refresh: () => {
             dispatch(fetchEventData());
+            dispatch(fetchFavorites());
+        },
+        saveFavorite: (talkId) => {
+            dispatch(saveFavorite(talkId));
         }
     };
 };

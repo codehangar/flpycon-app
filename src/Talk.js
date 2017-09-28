@@ -14,14 +14,14 @@ import {
 import colors from '../native-base-theme/variables/commonColor';
 import personPlaceHolder from './images/person-placeholder.jpg';
 import { fetchNotes, saveNotes } from './data/notes.actions';
+import { fetchFavorites, saveFavorite } from './data/favorites.actions';
 
 class Feed extends React.Component {
     static navigationOptions = ({ navigation, screenProps }) => ({
         title: `Talk Detailsss`,
         headerBackTitle: null,
         headerTintColor: '#efa320',
-        headerTitleStyle: { color: null },
-        headerRight: <Button iconLeft transparent><Icon name='ios-star-outline'/></Button>
+        headerTitleStyle: { color: null }
     });
 
     async componentWillMount() {
@@ -30,6 +30,21 @@ class Feed extends React.Component {
 
     updateNotes = async (note) => {
         this.props.saveNotes(this.props.navigation.state.params.talkId, note);
+    };
+
+    renderFavoriteBtn = (item) => {
+        let icon = <Icon style={styles.star} name="ios-star-outline"/>;
+        let text = <Text>Add to My Pycon</Text>;
+        if (this.props.favorites[item.id]) {
+            icon = <Icon style={styles.star} name="ios-star"/>;
+            text = <Text>Remove from My Pycon</Text>;
+        }
+        return (
+            <Button block iconLeft bordered style={styles.favoriteBtn} onPress={() => this.props.saveFavorite(item.id)}>
+                {icon}
+                {text}
+            </Button>
+        );
     };
 
     renderList = () => {
@@ -41,6 +56,7 @@ class Feed extends React.Component {
             return (
                 <View>
                     <View style={styles.section}>
+                        {this.renderFavoriteBtn(talk)}
                         <H1>{talk.title}</H1>
                         <View style={styles.speaker}>
                             <Thumbnail source={img} style={styles.thumb}/>
@@ -123,6 +139,9 @@ const styles = StyleSheet.create({
     },
     thumb: {
         marginRight: 10
+    },
+    favoriteBtn: {
+        marginBottom: 10
     }
 });
 
@@ -132,20 +151,24 @@ const mapStateToProps = (state) => {
         // isBackgroundLoading: state.speakers.isBackgroundLoading,
         // updated: state.speakers.updated,
         talks: state.speakers.talks,
-        notes: state.notes
+        notes: state.notes,
+        favorites: state.favorites
     };
 };
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        toggleFavorite: () => {
-            dispatch(toggleFavorite());
-        },
         fetchNotes: () => {
             dispatch(fetchNotes());
         },
+        fetchFavorites: () => {
+            dispatch(fetchFavorites());
+        },
         saveNotes: (talkId, note) => {
             dispatch(saveNotes(talkId, note));
+        },
+        saveFavorite: (talkId) => {
+            dispatch(saveFavorite(talkId));
         }
     };
 };

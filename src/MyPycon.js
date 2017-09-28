@@ -29,6 +29,7 @@ import BrandedContainer from './BrandedContainer';
 import { getNotes } from './utils/notes-storage';
 import { getAllFavorites } from './utils/favorites-storage';
 import { fetchNotes } from './data/notes.actions';
+import { fetchFavorites } from './data/favorites.actions';
 
 class MyPycon extends React.Component {
     static navigationOptions = ({ navigation, screenProps }) => ({
@@ -43,14 +44,9 @@ class MyPycon extends React.Component {
         )
     });
 
-    state = {
-        favorites: {}
-    };
-
     async componentWillMount() {
         this.props.fetchNotes();
-        const favorites = await getAllFavorites();
-        this.setState({ favorites });
+        this.props.fetchFavorites();
     }
 
     renderTalkItem = (item) => {
@@ -85,9 +81,8 @@ class MyPycon extends React.Component {
     };
 
     renderMyAgenda() {
-        if (this.state.favorites && this.props.talks) {
-            const favoritedTalks = this.props.talks.filter((t) => !!this.state.favorites[t.id]);
-            // console.log('------------------------------', favoritedTalks);
+        if (this.props.favorites && this.props.talks) {
+            const favoritedTalks = this.props.talks.filter((t) => !!this.props.favorites[t.id]);
             if (favoritedTalks.length) {
                 return favoritedTalks.map(this.renderTalkItem);
             } else {
@@ -208,7 +203,8 @@ const mapStateToProps = (state) => {
         // isBackgroundLoading: state.speakers.isBackgroundLoading,
         // updated: state.speakers.updated,
         talks: state.speakers.talks,
-        notes: state.notes
+        notes: state.notes,
+        favorites: state.favorites
     };
 };
 
@@ -219,6 +215,9 @@ const mapDispatchToProps = (dispatch) => {
         },
         fetchNotes: () => {
             dispatch(fetchNotes());
+        },
+        fetchFavorites: () => {
+            dispatch(fetchFavorites());
         }
     };
 };
