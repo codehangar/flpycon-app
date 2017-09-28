@@ -1,30 +1,19 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { StyleSheet, ActivityIndicator, ScrollView, RefreshControl } from 'react-native';
+import { StyleSheet, ScrollView } from 'react-native';
 import {
     Container,
-    Content,
-    Body,
-    Left,
-    Right,
     View,
-    Card,
-    CardItem,
     Button,
-    Spinner,
     Icon,
     Thumbnail,
     Text,
-    List,
     Input,
-    ListItem,
-    H2,
     H1
 } from 'native-base/src';
-import API from './utils/api';
 import colors from '../native-base-theme/variables/commonColor';
 import personPlaceHolder from './images/person-placeholder.jpg';
-import { getNotes, setNotes } from './utils/notes-storage';
+import { fetchNotes, saveNotes } from './data/notes.actions';
 
 class Feed extends React.Component {
     static navigationOptions = ({ navigation, screenProps }) => ({
@@ -35,24 +24,20 @@ class Feed extends React.Component {
         headerRight: <Button iconLeft transparent><Icon name='ios-star-outline'/></Button>
     });
 
-    state = {
-        notes: ''
-    };
-
     async componentWillMount() {
-        const notes = await getNotes(this.props.navigation.state.params.talkId);
-        this.setState({ notes });
+        this.props.fetchNotes();
     }
 
-    updateNotes = async (notes) => {
-        this.setState({ notes });
-        await setNotes(this.props.navigation.state.params.talkId, notes);
+    updateNotes = async (note) => {
+        this.props.saveNotes(this.props.navigation.state.params.talkId, note);
     };
 
     renderList = () => {
         if (this.props.talks) {
             const talk = this.props.talks.find((t) => t.id === this.props.navigation.state.params.talkId);
             const img = talk.speaker.headshot ? { uri: talk.speaker.headshot } : personPlaceHolder;
+
+            const notesStr = this.props.notes[this.props.navigation.state.params.talkId];
             return (
                 <View>
                     <View style={styles.section}>
@@ -73,7 +58,7 @@ class Feed extends React.Component {
                         <Text style={styles.fieldHeading}>NOTES</Text>
                         <Input style={styles.input} multiline
                                placeholder='Enter notes...'
-                               value={this.state.notes}
+                               value={notesStr}
                                onChangeText={this.updateNotes}
                         />
                     </View>
@@ -146,7 +131,8 @@ const mapStateToProps = (state) => {
         // isLoading: state.speakers.isLoading,
         // isBackgroundLoading: state.speakers.isBackgroundLoading,
         // updated: state.speakers.updated,
-        talks: state.speakers.talks
+        talks: state.speakers.talks,
+        notes: state.notes
     };
 };
 
@@ -154,6 +140,12 @@ const mapDispatchToProps = (dispatch) => {
     return {
         toggleFavorite: () => {
             dispatch(toggleFavorite());
+        },
+        fetchNotes: () => {
+            dispatch(fetchNotes());
+        },
+        saveNotes: (talkId, note) => {
+            dispatch(saveNotes(talkId, note));
         }
     };
 };

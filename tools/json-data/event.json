@@ -1,17 +1,17 @@
 {
   "tracks": [
-    "Data", //PowerDMS
-    "Web", //Canvs
-    "Speaker's Choice" //The Iron Yard
+    "Data",
+    "Web",
+    "Speaker's Choice"
   ],
   "talks": [
     {
       "id": "postgres",
-      "track": "Data",
       "title": "Postgres at any scale",
       "description": "Keeping your app performant is table stakes these days, but it doesn’t have to be rocket science. We’ll look at the basics for small, medium, and even terabytes of data for what you need to do to keep things performing well. We’ll start with the basics you need to know as an app developer about interacting with your database, then dig into how you can start to analyze performance. We’ll look at things you need to know for a small application, then the things you should be cautious of as you start to layer in other items you need to be aware of for performance including: Cache hit ratio, Index hit ratio, Proper use of indexes, Bloat, Efficient joins, Sharding",
       "time": "10:00 - 10:50am",
-      "location": "PowerDMS",
+      "location": "Canvs",
+      "track": "Web",
       "speaker": {
         "headshot": "http://flpy.org/wp-content/uploads/2017/09/craig-circle.png",
         "name": "Craig Kerstiens",
@@ -30,12 +30,32 @@
       }
     },
     {
-      "id": "garbage_collection",
+      "id": "asteroids",
+      "title": "Detecting Asteroids with Neural Networks",
+      "description": "TensorFlow is an open-source software library for Machine Intelligence. In this talk, we will learn how to use it to build and train a neural network with the goal of correctly identifying asteroids in astrophotography data. The dataset used will be from the Sloan Digital Sky Survey, one of the most ambitious and influential surveys in the history of astronomy.\n\nUsing this data, we will learn how to create and featurize a training dataset, build and fit a neural network, and train our model to correctly identify asteroids visible from Earth.\n\nThis talk is for a wide range of Python developers, from those who have heard of machine learning, but have never experimented with it, to those who have significant experience with neural networks, but have never used TensorFlow before.\n\nThe audience should have some basic Python knowledge, but no formal or informal experience with machine intelligence is assumed.\n\nAfter watching this talk, the audience should know how to determine and develop features, how and why to build a training dataset, how to build and train a neural network, and some other approaches to supervised learning.",
+      "time": "10:00am - 10:50am",
+      "location": "PowerDMS",
       "track": "Data",
+      "speaker": {
+        "headshot": "http://flpy.org/wp-content/uploads/2017/09/dustin.png",
+        "name": "Dustin Ingram",
+        "title": "Software Engineer",
+        "companyName": "PromptWorks",
+        "links": [
+          {
+            "type": "Github",
+            "url": "https://github.com/di"
+          }
+        ]
+      }
+    },
+    {
+      "id": "garbage_collection",
       "title": "Using Python *for* Garbage Collection",
       "description": "One of the major things that my wife and I have looked for wherever we move is natural beauty and a good collection of public green space. So, when I walked by a park and creek reserve on the north end of our city, only to find more trash than green space, I was mortified. Working together with several individuals from Reddit we got the park to a reasonably clean state, removing over 400 gallons of trash. The experience made me realize, however, with over 480 parks, that as our city grew we needed a more self-sustaining solution to this problem. /nAfter sharing the story on Reddit, one thing that struck me was how many people were eager and capable of physically helping with the problem but had insufficient supplies or funds, and how many people couldn’t physically help, but were eager to throw money at the problem. I’m not political, and I certainly don’t have the time or ability to clean up 480+ parks, but like many of you, I know how to throw some code together. So I decided to build a tool that would connect those individuals with the funds to help to those with the time and physical ability. This talk is about how I created that tool, which consists of REST API, Website, and Android/IOS application using only Python and Open Source technologies. Finally, it is about how all of us as programmers have the power to make a visibly positive impact in our community even from the comfort and familiarity of our keyboards.",
       "time": "11:00 - 11:50am",
-      "location": "PowerDMS",
+      "location": "Canvs",
+      "track": "Web",
       "speaker": {
         "headshot": "http://flpy.org/wp-content/uploads/2017/09/timothy-circle.png",
         "name": "Timothy Crosley",
@@ -45,6 +65,48 @@
           {
             "type": "github",
             "url": "https://github.com/timothycrosley"
+          }
+        ]
+      }
+    },
+    {
+      "id": "cm2",
+      "title": "How to quickly build feature-rich interactive command-line applications with cmd2",
+      "description": "cmd2 is a tool for building interactive command line applications in Python. Its goal is to make it quick and easy for developers to build feature-rich and user-friendly interactive command line applications. It provides a simple API which is an extension of Python’s built-in cmd module. cmd2 provides a wealth of features on top of cmd to make your life easier and eliminates much of the boilerplate code which would be necessary when using cmd.",
+      "time": "11:00am - 11:50am",
+      "location": "The Iron Yard",
+      "track": "Speaker's Choice",
+      "speaker": {
+        "headshot": "http://flpy.org/wp-content/uploads/2017/09/TODD-circle.png",
+        "name": "Todd Leonhardt",
+        "bio": "I am a professional software developer with 15 years experience developing embedded, desktop, and mobile applications in Python, C++, C, and Java.",
+        "title": "Senior Cyber Engineer II",
+        "companyName": "Raytheon",
+        "companyLogo": "http://flpy.org/img/raytheon.jpeg",
+        "links": [
+          {
+            "type": "Github",
+            "url": "https://github.com/tleonhardt"
+          }
+        ]
+      }
+    },
+    {
+      "id": "swiss_train",
+      "title": "Swiss Train Deployments",
+      "description": "A Swiss Train deployment is a general-purpose deployment philosophy based on ideas from the Ember.js development process, modern browser releases, and various open-source project releases, such as the Ubuntu project.\n\nIn this talk, we’ll explore the motivation for a Swiss Train style deployment, the problems which it seeks to solve in existing deployment philosophies, and the core philosophy of a Swiss Train deployment.\n\nThis talk is for developers who are responsible for deploying code (not just Python!) to production in a timely manner, while still providing a stable ecosystem for their users.\n\nThe only background knowledge required is some amount of experience “deploying” code or releasing applications, whatever that may mean for an individual developer (essentially, this will allow the audience member to better empathize with the inefficiencies of current deployment philosophies (or lack thereof) and highlight the advantage of the proposed philosophy.\n\nAfter watching this talk, the audience should be able to: – understand why it is important to have a deployment philosophy – see the inefficiencies in current deployment philosophies – present a strong argument for adopting Swiss Train style deployments – be able to implement the deployment philosophy in their own workflow.",
+      "time": "1:20pm - 2:10pm",
+      "location": "Canvs",
+      "track": "Web",
+      "speaker": {
+        "headshot": "http://flpy.org/wp-content/uploads/2017/09/dustin.png",
+        "name": "Dustin Ingram",
+        "title": "Software Engineer",
+        "companyName": "PromptWorks",
+        "links": [
+          {
+            "type": "Github",
+            "url": "https://github.com/di"
           }
         ]
       }

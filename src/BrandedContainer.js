@@ -23,8 +23,6 @@ export default class BrandedContainer extends React.PureComponent {
             case'sm':
                 return { ...styles.sm, ...this.props.lowerStyles };
             case'md':
-                console.log('styles.md', styles.md); // eslint-disable-line no-console
-                console.log('this.props.lowerStyles', this.props.lowerStyles); // eslint-disable-line no-console
                 return { ...styles.md, ...this.props.lowerStyles };
             case'lg':
             default:

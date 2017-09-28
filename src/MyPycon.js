@@ -26,8 +26,9 @@ import API from './utils/api';
 import colors from '../native-base-theme/variables/commonColor';
 import personPlaceHolder from './images/person-placeholder.jpg';
 import BrandedContainer from './BrandedContainer';
-import { getAllNotes } from './utils/notes-storage';
+import { getNotes } from './utils/notes-storage';
 import { getAllFavorites } from './utils/favorites-storage';
+import { fetchNotes } from './data/notes.actions';
 
 class MyPycon extends React.Component {
     static navigationOptions = ({ navigation, screenProps }) => ({
@@ -43,13 +44,13 @@ class MyPycon extends React.Component {
     });
 
     state = {
-        notes: {}
+        favorites: {}
     };
 
     async componentWillMount() {
-        const notes = await getAllNotes();
+        this.props.fetchNotes();
         const favorites = await getAllFavorites();
-        this.setState({ notes, favorites });
+        this.setState({ favorites });
     }
 
     renderTalkItem = (item) => {
@@ -86,24 +87,24 @@ class MyPycon extends React.Component {
     renderMyAgenda() {
         if (this.state.favorites && this.props.talks) {
             const favoritedTalks = this.props.talks.filter((t) => !!this.state.favorites[t.id]);
-          console.log('------------------------------', favoritedTalks);
-          if(favoritedTalks.length){
-            return favoritedTalks.map(this.renderTalkItem);
-          }else {
-            return (
-              <Card>
-                <CardItem>
-                  <Text>You have no saved talks. Go to the Tracks list to save a talk.</Text>
-                </CardItem>
-              </Card>
-            )
-          }
+            // console.log('------------------------------', favoritedTalks);
+            if (favoritedTalks.length) {
+                return favoritedTalks.map(this.renderTalkItem);
+            } else {
+                return (
+                    <Card>
+                        <CardItem>
+                            <Text>You have no saved talks. Go to the Tracks list to save a talk.</Text>
+                        </CardItem>
+                    </Card>
+                )
+            }
         }
     }
 
     renderMyNotesCustom() {
-        if (this.state.notes && this.props.talks) {
-            const talksWithNotes = this.props.talks.filter((t) => !!this.state.notes[t.id]);
+        if (this.props.notes && this.props.talks) {
+            const talksWithNotes = this.props.talks.filter((t) => !!this.props.notes[t.id]);
             console.log('talksWithNotes', talksWithNotes); // eslint-disable-line no-console
             return talksWithNotes.map((item) => {
                 const img = item.speaker.headshot ? { uri: item.speaker.headshot } : personPlaceHolder;
@@ -134,19 +135,22 @@ class MyPycon extends React.Component {
     }
 
     renderMyNotes() {
-        if (this.state.notes && this.props.talks) {
-            const talksWithNotes = this.props.talks.filter((t) => !!this.state.notes[t.id]);
-          if(talksWithNotes.length){
-            return talksWithNotes.map(this.renderTalkItem);
-          } else {
-            return (
-              <Card>
-                <CardItem>
-                  <Text>You haven't taken any notes. Scroll to the bottom of a talk's details to take notes on that talk.</Text>
-                </CardItem>
-              </Card>
-            )
-          }
+        if (this.props.notes && this.props.talks) {
+            const talksWithNotes = this.props.talks.filter((t) => {
+                return this.props.notes[t.id] && this.props.notes[t.id].length;
+            });
+            if (talksWithNotes.length) {
+                return talksWithNotes.map(this.renderTalkItem);
+            } else {
+                return (
+                    <Card>
+                        <CardItem>
+                            <Text>You haven't taken any notes. Scroll to the bottom of a talk's details to take notes on
+                                that talk.</Text>
+                        </CardItem>
+                    </Card>
+                )
+            }
         }
     }
 
@@ -203,7 +207,8 @@ const mapStateToProps = (state) => {
         // isLoading: state.speakers.isLoading,
         // isBackgroundLoading: state.speakers.isBackgroundLoading,
         // updated: state.speakers.updated,
-        talks: state.speakers.talks
+        talks: state.speakers.talks,
+        notes: state.notes
     };
 };
 
@@ -211,6 +216,9 @@ const mapDispatchToProps = (dispatch) => {
     return {
         toggleFavorite: () => {
             dispatch(toggleFavorite());
+        },
+        fetchNotes: () => {
+            dispatch(fetchNotes());
         }
     };
 };
