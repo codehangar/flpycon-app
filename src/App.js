@@ -37,7 +37,7 @@ const MyPyconNavigator = StackNavigator({
 });
 
 const goToURL = () => {
-    const url = 'https://www.codehangar.io';
+    const url = 'https://codehangar.io';
     Linking.canOpenURL(url).then(supported => {
         if (supported) {
             Linking.openURL(url);
@@ -45,7 +45,7 @@ const goToURL = () => {
             console.log('Don\'t know how to open URI: ' + url);
         }
     });
-}
+};
 
 const AppNavigator = DrawerNavigator({
     Agenda: { screen: AgendaNavigator },
@@ -57,7 +57,7 @@ const AppNavigator = DrawerNavigator({
     initialRouteName: 'Tracks',
     contentComponent: props => (
         <View>
-            <StatusBar barStyle="dark-content"/>
+            <StatusBar barStyle="default"/>
             <BrandedContainer size="md" lowerStyles={styles.lowerStyles}>
                 <Text style={styles.welcome}>Welcome to Florida Pycon 2017!</Text>
                 <DrawerItems {...props} activeTintColor="#efa320"/>
