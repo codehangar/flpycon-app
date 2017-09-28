@@ -71,7 +71,17 @@ You will need to install the expo CLI
 ** **Note** **: `buildNumber` and `versionCode` are simply integers that should be incremented by one for **every single build**.
 These numbers do not have a direct relationship in any way with the `version` numbers. The `version` numbers should follow 
 a normal semver pattern.  
-   
+
+
+Builds (internal):   
+https://drive.google.com/drive/u/1/folders/0ByoHZ9LzQ1rNY0o1WEFFWWN6V2M
+
+Build/App Signing Keys (internal):   
+https://drive.google.com/drive/u/1/folders/0ByoHZ9LzQ1rNUTNnQWtMckNwNVE
+
+Store Links:   
+https://play.google.com/store/apps/details?id=io.codehangar.flpycon_app
+https://itunes.apple.com/us/app/fl-pycon/id1287404908?mt=8&ign-mpt=uo%3D4
 ---
 
 This project was bootstrapped with [Create React Native App](https://github.com/react-community/create-react-native-app).
