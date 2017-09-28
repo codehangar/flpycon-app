@@ -13,7 +13,7 @@
       "versionCode": 1,
       "permissions": []
     },
-    "sdkVersion": "20.0.0",
+    "sdkVersion": "21.0.0",
     "androidStatusBar": {
       "barStyle": "dark-content",
       "backgroundColor": "#ffffff"
