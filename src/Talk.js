@@ -56,7 +56,6 @@ class Feed extends React.Component {
             return (
                 <View>
                     <View style={styles.section}>
-                        {this.renderFavoriteBtn(talk)}
                         <H1>{talk.title}</H1>
                         <View style={styles.speaker}>
                             <Thumbnail source={img} style={styles.thumb}/>
@@ -65,6 +64,7 @@ class Feed extends React.Component {
                                 <Text note>{talk.track} | {talk.time} | {talk.location}</Text>
                             </View>
                         </View>
+                        {this.renderFavoriteBtn(talk)}
                     </View>
                     <View style={styles.section}>
                         <Text style={styles.fieldHeading}>TALK DESCRIPTION</Text>
@@ -143,7 +143,7 @@ const styles = StyleSheet.create({
         marginRight: 10
     },
     favoriteBtn: {
-        marginBottom: 10
+        marginTop: 10
     }
 });
 

@@ -15,12 +15,17 @@ import {
     Tabs,
     Tab,
     ScrollableTab,
-    Toast
+    Button
 } from 'native-base/src';
 import { fetchEventData, fetchSpeakers } from './data/speakers.actions';
 import colors from '../native-base-theme/variables/commonColor';
 import personPlaceHolder from './images/person-placeholder.jpg';
 import { fetchFavorites, saveFavorite } from './data/favorites.actions';
+import CHCard from './CHCard';
+import CHCardItem from './CHCardItem';
+import CHLeft from './CHLeft';
+import CHBody from './CHBody';
+import CHRight from './CHRight';
 
 class Feed extends React.Component {
     static navigationOptions = ({ navigation, screenProps }) => {
@@ -60,63 +65,70 @@ class Feed extends React.Component {
     };
 
     renderFavoriteBtn = (item) => {
-        if (this.props.favorites[item.id]) {
-            return <Icon style={styles.star} name="ios-star" onPress={() => this.props.saveFavorite(item.id)}/>
-        } else {
-            return <Icon style={styles.star} name="ios-star-outline" onPress={() => this.props.saveFavorite(item.id)}/>
-        }
+        // if (this.props.favorites[item.id]) {
+        //     return <Icon style={styles.star} name="ios-star" onPress={() => this.props.saveFavorite(item.id)}/>
+        // } else {
+        //     return <Icon style={styles.star} name="ios-star-outline" onPress={() => this.props.saveFavorite(item.id)}/>
+        // }
+        return (
+            <Button transparent small onPress={() => this.props.saveFavorite(item.id)}>
+                <Icon style={styles.star} name={this.props.favorites[item.id] ? 'ios-star' : 'ios-star-outline'}/>
+            </Button>
+        )
     };
 
-    renderList = () => {
+    renderTalkItem = (item) => {
+        const img = item.speaker.headshot ? { uri: item.speaker.headshot } : personPlaceHolder;
+        const navToTalk = () => this.props.navigation.navigate('Talk', { talkId: item.id });
+        return (
+            <CHCard key={item.id}>
+                <CHCardItem bordered row>
+                    <CHBody>
+                        <Text style={styles.bold}>Track: {item.track}</Text>
+                    </CHBody>
+                    <CHRight>
+                        <Text note>{item.time}</Text>
+                    </CHRight>
+                </CHCardItem>
+                <CHCardItem bordered row button onPress={navToTalk}>
+                    <CHLeft>
+                        <Thumbnail source={img}/>
+                    </CHLeft>
+                    <CHBody>
+                        <Text style={styles.bold}>{item.title}</Text>
+                        <Text>By {item.speaker.name}</Text>
+                    </CHBody>
+                    <CHRight>
+                        <Icon name="ios-arrow-forward" style={styles.rightIcon}/>
+                    </CHRight>
+                </CHCardItem>
+                <CHCardItem bordered row>
+                    <CHLeft>
+                        <Text>{item.location}</Text>
+                    </CHLeft>
+                    <CHRight>
+                        {this.renderFavoriteBtn(item)}
+                    </CHRight>
+                </CHCardItem>
+            </CHCard>
+        );
+    };
+
+    renderList = (track) => {
         if (this.props.talks.length) {
-            return this.props.talks.map((item, i) => {
-                const img = item.speaker.headshot ? { uri: item.speaker.headshot } : personPlaceHolder;
-                return (
-                    <Card key={i}>
-                        <CardItem header bordered>
-                            <Left>
-                                <Body>
-                                    <Text style={styles.bold}>Track: {item.track}</Text>
-                                </Body>
-                            </Left>
-                            <Right>
-                                <Text note>{item.time}</Text>
-                            </Right>
-                        </CardItem>
-                        <CardItem header bordered button
-                                  onPress={() => this.props.navigation.navigate('Talk', { talkId: item.id })}>
-                            <Left style={{ width: 1200 }}>
-                                <Thumbnail source={img}/>
-                                <Body style={{ flex: 3 }}>
-                                    <Text style={styles.bold}>{item.title}</Text>
-                                    <Text>By {item.speaker.name}</Text>
-                                </Body>
-                            </Left>
-                            <Right>
-                                <Icon name="ios-arrow-forward"/>
-                            </Right>
-                        </CardItem>
-                        <CardItem header bordered>
-                            <Left>
-                                <Text>{item.location}</Text>
-                            </Left>
-                            <Right>
-                                {this.renderFavoriteBtn(item)}
-                            </Right>
-                        </CardItem>
-                    </Card>
-                );
-            });
+            return this.props.talks
+                .filter((item) => !track || item.track === track)
+                .map(this.renderTalkItem);
         }
         if (!this.props.isLoading) {
             return (
-                <Card>
-                    <CardItem>
-                        <Body>
+                <CHCard>
+                    <CHCardItem>
+                        <CHBody>
                             <Text>Speaker List is Empty</Text>
-                        </Body>
-                    </CardItem>
-                </Card>
+                        </CHBody>
+                    </CHCardItem>
+                </CHCard>
             );
         }
         return null;
@@ -129,18 +141,24 @@ class Feed extends React.Component {
                 <Tabs initialPage={0} renderTabBar={() => <ScrollableTab/>}>
                     <Tab heading="All Tracks">
                         {/*{this.renderLastUpdated()}*/}
-                        <ScrollView style={styles.container} refreshControl={refreshControl}>
+                        <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
                             {this.renderList()}
                         </ScrollView>
                     </Tab>
                     <Tab heading="Data">
-                        <View/>
+                        <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
+                            {this.renderList('Data')}
+                        </ScrollView>
                     </Tab>
                     <Tab heading="Web">
-                        <View/>
+                        <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
+                            {this.renderList('Web')}
+                        </ScrollView>
                     </Tab>
                     <Tab heading="Speaker's Choice">
-                        <View/>
+                        <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
+                            {this.renderList('Speaker\'s Choice')}
+                        </ScrollView>
                     </Tab>
                 </Tabs>
             </Container>
@@ -150,8 +168,11 @@ class Feed extends React.Component {
 
 const styles = StyleSheet.create({
     container: {
-        padding: 5,
+        paddingHorizontal: 5,
         backgroundColor: '#e9e9ef'
+    },
+    contentContainer: {
+        paddingVertical: 3
     },
     bold: {
         fontWeight: 'bold'
@@ -170,7 +191,12 @@ const styles = StyleSheet.create({
         marginLeft: 20
     },
     star: {
-        color: colors.brandPrimary
+        color: colors.brandPrimary,
+        fontSize: colors.iconFontSize - 8
+    },
+    rightIcon: {
+        fontSize: colors.iconFontSize - 8,
+        color: colors.cardBorderColor
     }
 });
 

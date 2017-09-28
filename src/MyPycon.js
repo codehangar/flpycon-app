@@ -98,7 +98,7 @@ class MyPycon extends React.Component {
                         <Text>By {item.speaker.name}</Text>
                     </CHBody>
                     <CHRight>
-                        <Icon style={{}} name="ios-arrow-forward"/>
+                        <Icon name="ios-arrow-forward" style={styles.rightIcon}/>
                     </CHRight>
                 </CHCardItem>
             </CHCard>
@@ -185,6 +185,10 @@ const styles = StyleSheet.create({
         height: 10,
         width: 10,
         marginLeft: 20
+    },
+    rightIcon: {
+        fontSize: colors.iconFontSize - 8,
+        color: colors.cardBorderColor
     }
 });
 
