@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { StyleSheet, ScrollView } from 'react-native';
+import { StyleSheet, ScrollView, KeyboardAvoidingView } from 'react-native';
 import {
     Container,
     View,
@@ -87,9 +87,11 @@ class Feed extends React.Component {
     render() {
         return (
             <Container>
-                <ScrollView style={styles.container}>
-                    {this.renderList()}
-                </ScrollView>
+                <KeyboardAvoidingView behavior="position">
+                    <ScrollView style={styles.container}>
+                        {this.renderList()}
+                    </ScrollView>
+                </KeyboardAvoidingView>
             </Container>
         );
     }
