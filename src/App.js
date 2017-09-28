@@ -1,5 +1,5 @@
 import React from 'react';
-import { ScrollView, StyleSheet, Linking } from 'react-native';
+import { ScrollView, StyleSheet, Linking, StatusBar } from 'react-native';
 import { Root, Drawer, View, Icon, Text, H3 } from 'native-base/src';
 import { StackNavigator, DrawerNavigator, DrawerItems } from 'react-navigation';
 import Feed from './Feed';
@@ -37,14 +37,14 @@ const MyPyconNavigator = StackNavigator({
 });
 
 const goToURL = () => {
-  const url = 'https://www.codehangar.io';
-  Linking.canOpenURL(url).then(supported => {
-    if (supported) {
-      Linking.openURL(url);
-    } else {
-      console.log('Don\'t know how to open URI: ' + url);
-    }
-  });
+    const url = 'https://www.codehangar.io';
+    Linking.canOpenURL(url).then(supported => {
+        if (supported) {
+            Linking.openURL(url);
+        } else {
+            console.log('Don\'t know how to open URI: ' + url);
+        }
+    });
 }
 
 const AppNavigator = DrawerNavigator({
@@ -56,12 +56,15 @@ const AppNavigator = DrawerNavigator({
 }, {
     initialRouteName: 'Tracks',
     contentComponent: props => (
-        <BrandedContainer size="md" lowerStyles={styles.lowerStyles}>
-            <Text style={styles.welcome}>Welcome to Florida Pycon 2017!</Text>
-            <DrawerItems {...props} activeTintColor="#efa320"/>
-            <Text style={styles.footer} onPress={goToURL}>This app was built by Code Hangar</Text>
-            <Text style={styles.footer2}>Copyright Florida PyCon © 2017. All rights reserved.</Text>
-        </BrandedContainer>
+        <View>
+            <StatusBar barStyle="dark-content"/>
+            <BrandedContainer size="md" lowerStyles={styles.lowerStyles}>
+                <Text style={styles.welcome}>Welcome to Florida Pycon 2017!</Text>
+                <DrawerItems {...props} activeTintColor="#efa320"/>
+                <Text style={styles.footer} onPress={goToURL}>This app was built by Code Hangar</Text>
+                <Text style={styles.footer2}>Copyright Florida PyCon © 2017. All rights reserved.</Text>
+            </BrandedContainer>
+        </View>
     )
 });
 
@@ -77,23 +80,23 @@ const styles = {
         marginTop: 20,
         marginLeft: 20,
         borderBottomColor: '#ccc',
-      borderBottomWidth: 1
+        borderBottomWidth: 1
     },
     lowerStyles: {
         justifyContent: 'flex-start',
         marginHorizontal: 0
     },
-    footer:{
+    footer: {
         marginTop: 40,
         marginLeft: 20,
         fontSize: 12,
         color: '#bbb',
         textDecorationLine: 'underline'
     },
-    footer2:{
-      marginTop: 10,
-      marginLeft: 20,
-      fontSize: 12,
-      color: '#bbb'
+    footer2: {
+        marginTop: 10,
+        marginLeft: 20,
+        fontSize: 12,
+        color: '#bbb'
     }
 };
