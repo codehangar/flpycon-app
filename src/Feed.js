@@ -3,12 +3,7 @@ import { connect } from 'react-redux';
 import { StyleSheet, ActivityIndicator, ScrollView, RefreshControl } from 'react-native';
 import {
     Container,
-    Body,
-    Left,
-    Right,
     View,
-    Card,
-    CardItem,
     Icon,
     Thumbnail,
     Text,
@@ -26,6 +21,7 @@ import CHCardItem from './CHCardItem';
 import CHLeft from './CHLeft';
 import CHBody from './CHBody';
 import CHRight from './CHRight';
+import TalkListItem from './TalkListItem';
 
 class Feed extends React.Component {
     static navigationOptions = ({ navigation, screenProps }) => {
@@ -64,53 +60,10 @@ class Feed extends React.Component {
         );
     };
 
-    renderFavoriteBtn = (item) => {
-        // if (this.props.favorites[item.id]) {
-        //     return <Icon style={styles.star} name="ios-star" onPress={() => this.props.saveFavorite(item.id)}/>
-        // } else {
-        //     return <Icon style={styles.star} name="ios-star-outline" onPress={() => this.props.saveFavorite(item.id)}/>
-        // }
-        return (
-            <Button transparent small onPress={() => this.props.saveFavorite(item.id)}>
-                <Icon style={styles.star} name={this.props.favorites[item.id] ? 'ios-star' : 'ios-star-outline'}/>
-            </Button>
-        )
-    };
-
     renderTalkItem = (item) => {
-        const img = item.speaker.headshot ? { uri: item.speaker.headshot } : personPlaceHolder;
-        const navToTalk = () => this.props.navigation.navigate('Talk', { talkId: item.id });
         return (
-            <CHCard key={item.id}>
-                <CHCardItem bordered row>
-                    <CHBody>
-                        <Text style={styles.bold}>Track: {item.track}</Text>
-                    </CHBody>
-                    <CHRight>
-                        <Text note>{item.time}</Text>
-                    </CHRight>
-                </CHCardItem>
-                <CHCardItem bordered row button onPress={navToTalk}>
-                    <CHLeft>
-                        <Thumbnail source={img}/>
-                    </CHLeft>
-                    <CHBody>
-                        <Text style={styles.bold}>{item.title}</Text>
-                        <Text>By {item.speaker.name}</Text>
-                    </CHBody>
-                    <CHRight>
-                        <Icon name="ios-arrow-forward" style={styles.rightIcon}/>
-                    </CHRight>
-                </CHCardItem>
-                <CHCardItem bordered row>
-                    <CHLeft>
-                        <Text>{item.location}</Text>
-                    </CHLeft>
-                    <CHRight>
-                        {this.renderFavoriteBtn(item)}
-                    </CHRight>
-                </CHCardItem>
-            </CHCard>
+            <TalkListItem key={item.id} talk={item} favorites={this.props.favorites}
+                          navigation={this.props.navigation} saveFavorite={this.props.saveFavorite}/>
         );
     };
 
@@ -174,13 +127,6 @@ const styles = StyleSheet.create({
     contentContainer: {
         paddingVertical: 3
     },
-    bold: {
-        fontWeight: 'bold'
-    },
-    fieldHeading: {
-        fontWeight: 'bold',
-        marginTop: 10
-    },
     lastUpdated: {
         backgroundColor: colors.cardDefaultBg,
         padding: 10
@@ -189,14 +135,6 @@ const styles = StyleSheet.create({
         height: 10,
         width: 10,
         marginLeft: 20
-    },
-    star: {
-        color: colors.brandPrimary,
-        fontSize: colors.iconFontSize - 8
-    },
-    rightIcon: {
-        fontSize: colors.iconFontSize - 8,
-        color: colors.cardBorderColor
     }
 });
 

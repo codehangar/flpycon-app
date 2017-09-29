@@ -19,13 +19,14 @@ import colors from '../native-base-theme/variables/commonColor';
 import personPlaceHolder from './images/person-placeholder.jpg';
 import { getAllFavorites } from './utils/favorites-storage';
 import { fetchNotes } from './data/notes.actions';
-import { fetchFavorites } from './data/favorites.actions';
+import { fetchFavorites, saveFavorite } from './data/favorites.actions';
 import { fetchEventData } from './data/speakers.actions';
 import CHCardItem from './CHCardItem';
 import CHCard from './CHCard';
 import CHLeft from './CHLeft';
 import CHRight from './CHRight';
 import CHBody from './CHBody';
+import TalkListItem from './TalkListItem';
 
 class MyPycon extends React.Component {
     static navigationOptions = ({ navigation, screenProps }) => ({
@@ -77,31 +78,35 @@ class MyPycon extends React.Component {
     };
 
     renderTalkItemCustomIan = (item) => {
-        const img = item.speaker.headshot ? { uri: item.speaker.headshot } : personPlaceHolder;
-        const navToTalk = () => this.props.navigation.navigate('Talk', { talkId: item.id });
+        // const img = item.speaker.headshot ? { uri: item.speaker.headshot } : personPlaceHolder;
+        // const navToTalk = () => this.props.navigation.navigate('Talk', { talkId: item.id });
+        // return (
+        //     <CHCard key={item.id}>
+        //         <CHCardItem bordered row>
+        //             <CHBody>
+        //                 <Text style={styles.bold}>Track: {item.track}</Text>
+        //             </CHBody>
+        //             <CHRight>
+        //                 <Text note>{item.time}</Text>
+        //             </CHRight>
+        //         </CHCardItem>
+        //         <CHCardItem bordered row button onPress={navToTalk}>
+        //             <CHLeft>
+        //                 <Thumbnail source={img}/>
+        //             </CHLeft>
+        //             <CHBody>
+        //                 <Text style={styles.bold}>{item.title}</Text>
+        //                 <Text>By {item.speaker.name}</Text>
+        //             </CHBody>
+        //             <CHRight>
+        //                 <Icon name="ios-arrow-forward" style={styles.rightIcon}/>
+        //             </CHRight>
+        //         </CHCardItem>
+        //     </CHCard>
+        // );
         return (
-            <CHCard key={item.id}>
-                <CHCardItem bordered row>
-                    <CHBody>
-                        <Text style={styles.bold}>Track: {item.track}</Text>
-                    </CHBody>
-                    <CHRight>
-                        <Text note>{item.time}</Text>
-                    </CHRight>
-                </CHCardItem>
-                <CHCardItem bordered row button onPress={navToTalk}>
-                    <CHLeft>
-                        <Thumbnail source={img}/>
-                    </CHLeft>
-                    <CHBody>
-                        <Text style={styles.bold}>{item.title}</Text>
-                        <Text>By {item.speaker.name}</Text>
-                    </CHBody>
-                    <CHRight>
-                        <Icon name="ios-arrow-forward" style={styles.rightIcon}/>
-                    </CHRight>
-                </CHCardItem>
-            </CHCard>
+            <TalkListItem key={item.id} talk={item} favorites={this.props.favorites}
+                          navigation={this.props.navigation} saveFavorite={this.props.saveFavorite}/>
         );
     };
 
@@ -192,11 +197,6 @@ const styles = StyleSheet.create({
     }
 });
 
-const lowerStyles = {
-    justifyContent: 'flex-start'
-    // marginHorizontal: 0
-};
-
 const mapStateToProps = (state) => {
     return {
         // isLoading: state.speakers.isLoading,
@@ -210,8 +210,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        toggleFavorite: () => {
-            dispatch(toggleFavorite());
+        saveFavorite: (talkId) => {
+            dispatch(saveFavorite(talkId));
         },
         fetchNotes: () => {
             dispatch(fetchNotes());
