@@ -50,7 +50,12 @@ class TalkNotes extends React.Component {
 
     renderLastSaved = () => {
         if (this.props.loading || !this.state.lastSaved) {
-            return <Text note>saving... &nbsp; <ActivityIndicator style={styles.spinner}/></Text>;
+            return (
+                <View style={styles.row}>
+                    <Text note>saving... &nbsp; </Text>
+                    <ActivityIndicator style={styles.spinner}/>
+                </View>
+            );
         } else {
             const time = this.state.lastSaved ? moment(this.state.lastSaved).format('h:mm A on MMM DD') : 'never';
             return <Text note>Last Saved: {time}</Text>;
@@ -86,7 +91,8 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         borderStyle: 'solid',
         borderRadius: 5,
-        minHeight: 120
+        minHeight: 120,
+        textAlignVertical: 'top'
     },
     row: {
         flexDirection: 'row'

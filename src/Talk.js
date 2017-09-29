@@ -8,13 +8,13 @@ import {
     Icon,
     Thumbnail,
     Text,
-    Input,
     H1
 } from 'native-base/src';
 import colors from '../native-base-theme/variables/commonColor';
 import personPlaceHolder from './images/person-placeholder.jpg';
 import { saveFavorite } from './data/favorites.actions';
 import TalkNotes from './TalkNotes';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 
 class Talk extends React.Component {
     static navigationOptions = ({ navigation, screenProps }) => ({
@@ -71,13 +71,9 @@ class Talk extends React.Component {
 
     render() {
         return (
-            <Container>
-                <KeyboardAvoidingView behavior="position">
-                    <ScrollView style={styles.container}>
-                        {this.renderTalkDetails()}
-                    </ScrollView>
-                </KeyboardAvoidingView>
-            </Container>
+            <KeyboardAwareScrollView style={styles.container}>
+                {this.renderTalkDetails()}
+            </KeyboardAwareScrollView>
         );
     }
 }
@@ -110,13 +106,6 @@ const styles = StyleSheet.create({
         height: 10,
         width: 10,
         marginLeft: 20
-    },
-    input: {
-        borderColor: colors.cardBorderColor,
-        borderWidth: 1,
-        borderStyle: 'solid',
-        borderRadius: 5,
-        minHeight: 120
     },
     section: {
         padding: 15,
