@@ -20,13 +20,15 @@ import personPlaceHolder from './images/person-placeholder.jpg';
 import { getAllFavorites } from './utils/favorites-storage';
 import { fetchNotes } from './data/notes.actions';
 import { fetchFavorites, saveFavorite } from './data/favorites.actions';
-import { fetchEventData } from './data/speakers.actions';
+import { fetchEventData } from './data/event.actions';
 import CHCardItem from './CHCardItem';
 import CHCard from './CHCard';
 import CHLeft from './CHLeft';
 import CHRight from './CHRight';
 import CHBody from './CHBody';
 import TalkListItem from './TalkListItem';
+import AgendaListItem from './AgendaListItem';
+import moment from 'moment';
 
 class MyPycon extends React.Component {
     static navigationOptions = ({ navigation, screenProps }) => ({
@@ -46,75 +48,22 @@ class MyPycon extends React.Component {
         this.props.fetchFavorites();
     }
 
-    renderTalkItem = (item) => {
-        const img = item.speaker.headshot ? { uri: item.speaker.headshot } : personPlaceHolder;
+    renderAgendaItem = (item, i) => {
+        if (item.id) {
+            return (
+                <TalkListItem key={i} talk={item} favorites={this.props.favorites}
+                              navigation={this.props.navigation} saveFavorite={this.props.saveFavorite}/>
+            );
+        }
         return (
-            <Card key={item.id}>
-                <CardItem header bordered>
-                    <Left>
-                        <Body>
-                            <Text style={styles.bold}>Track: {item.track}</Text>
-                        </Body>
-                    </Left>
-                    <Right>
-                        <Text note>{item.time}</Text>
-                    </Right>
-                </CardItem>
-                <CardItem header bordered button
-                          onPress={() => this.props.navigation.navigate('Talk', { talkId: item.id })}>
-                    <Left style={{ width: 900 }}>
-                        <Thumbnail source={img}/>
-                        <Body style={{ flex: 3 }}>
-                            <Text style={styles.bold}>{item.title}</Text>
-                            <Text>By {item.speaker.name}</Text>
-                        </Body>
-                    </Left>
-                    <Right>
-                        <Icon name="ios-arrow-forward"/>
-                    </Right>
-                </CardItem>
-            </Card>
-        );
-    };
-
-    renderTalkItemCustomIan = (item) => {
-        // const img = item.speaker.headshot ? { uri: item.speaker.headshot } : personPlaceHolder;
-        // const navToTalk = () => this.props.navigation.navigate('Talk', { talkId: item.id });
-        // return (
-        //     <CHCard key={item.id}>
-        //         <CHCardItem bordered row>
-        //             <CHBody>
-        //                 <Text style={styles.bold}>Track: {item.track}</Text>
-        //             </CHBody>
-        //             <CHRight>
-        //                 <Text note>{item.time}</Text>
-        //             </CHRight>
-        //         </CHCardItem>
-        //         <CHCardItem bordered row button onPress={navToTalk}>
-        //             <CHLeft>
-        //                 <Thumbnail source={img}/>
-        //             </CHLeft>
-        //             <CHBody>
-        //                 <Text style={styles.bold}>{item.title}</Text>
-        //                 <Text>By {item.speaker.name}</Text>
-        //             </CHBody>
-        //             <CHRight>
-        //                 <Icon name="ios-arrow-forward" style={styles.rightIcon}/>
-        //             </CHRight>
-        //         </CHCardItem>
-        //     </CHCard>
-        // );
-        return (
-            <TalkListItem key={item.id} talk={item} favorites={this.props.favorites}
-                          navigation={this.props.navigation} saveFavorite={this.props.saveFavorite}/>
-        );
+            <AgendaListItem key={i} item={item}/>
+        )
     };
 
     renderMyAgenda() {
-        if (this.props.favorites && this.props.talks) {
-            const favoritedTalks = this.props.talks.filter((t) => !!this.props.favorites[t.id]);
-            if (favoritedTalks.length) {
-                return favoritedTalks.map(this.renderTalkItemCustomIan);
+        if (this.props.favorites && this.props.myAgenda) {
+            if (this.props.myAgenda.length) {
+                return this.props.myAgenda.map(this.renderAgendaItem);
             } else {
                 return (
                     <Card>
@@ -133,7 +82,7 @@ class MyPycon extends React.Component {
                 return this.props.notes[t.id] && this.props.notes[t.id].length;
             });
             if (talksWithNotes.length) {
-                return talksWithNotes.map(this.renderTalkItemCustomIan);
+                return talksWithNotes.map(this.renderAgendaItem);
             } else {
                 return (
                     <Card>
@@ -199,10 +148,12 @@ const styles = StyleSheet.create({
 
 const mapStateToProps = (state) => {
     return {
-        // isLoading: state.speakers.isLoading,
-        // isBackgroundLoading: state.speakers.isBackgroundLoading,
-        // updated: state.speakers.updated,
-        talks: state.speakers.talks,
+        // isLoading: state.event.isLoading,
+        // isBackgroundLoading: state.event.isBackgroundLoading,
+        // updated: state.event.updated,
+        talks: state.event.talks,
+        agenda: state.event.agenda,
+        myAgenda: state.myAgenda,
         notes: state.notes.data,
         favorites: state.favorites
     };

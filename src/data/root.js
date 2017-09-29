@@ -1,12 +1,14 @@
 import { combineReducers } from 'redux';
-import speakers from './speakers.reducer';
+import event from './event.reducer';
 import notes from './notes.reducer';
 import favorites from './favorites.reducer';
+import myAgenda from './my-agenda.reducer';
 
 const rootReducer = combineReducers({
-    speakers,
+    event,
     notes,
-    favorites
+    favorites,
+    myAgenda
 });
 
 export default rootReducer;

@@ -17,10 +17,8 @@ import {
     Text,
     H2
 } from 'native-base/src';
-import API from './utils/api';
-import colors from '../native-base-theme/variables/commonColor';
-import personPlaceHolder from './images/person-placeholder.jpg';
-import { fetchEventData } from './data/speakers.actions';
+import { fetchEventData } from './data/event.actions';
+import AgendaListItem from './AgendaListItem';
 
 class Agenda extends React.Component {
     static navigationOptions = ({ navigation, screenProps }) => ({
@@ -39,26 +37,9 @@ class Agenda extends React.Component {
         this.props.refresh();
     }
 
-
     renderList = () => {
         if (this.props.agenda.length) {
-            return this.props.agenda.map((item, i) => {
-                return (
-                    <Card key={i}>
-                        <CardItem header>
-                            <Left>
-                                <Body>
-                                    <Text style={styles.title}>{item.title}</Text>
-                                    <Text note>{item.location}</Text>
-                                </Body>
-                            </Left>
-                            <Right>
-                                <Text note>{item.time}</Text>
-                            </Right>
-                        </CardItem>
-                    </Card>
-                );
-            });
+            return this.props.agenda.map((item, i) => <AgendaListItem key={i} item={item}/>);
         }
         if (!this.props.isLoading) {
             return (
@@ -100,18 +81,15 @@ const styles = StyleSheet.create({
         height: 10,
         width: 10,
         marginLeft: 20
-    },
-    drawerIcon: {
-        // color: '#fff'
     }
 });
 
 const mapStateToProps = (state) => {
     return {
-        isLoading: state.speakers.isLoading,
-        isBackgroundLoading: state.speakers.isBackgroundLoading,
-        updated: state.speakers.updated,
-        agenda: state.speakers.agenda
+        isLoading: state.event.isLoading,
+        isBackgroundLoading: state.event.isBackgroundLoading,
+        updated: state.event.updated,
+        agenda: state.event.agenda
     };
 };
 
@@ -119,9 +97,6 @@ const mapDispatchToProps = (dispatch) => {
     return {
         refresh: () => {
             dispatch(fetchEventData());
-        },
-        toggleFavorite: () => {
-            dispatch(toggleFavorite());
         }
     };
 };

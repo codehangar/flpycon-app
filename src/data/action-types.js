@@ -1,5 +1,6 @@
 export const GET_EVENT_DATA = 'GET_EVENT_DATA';
 export const SET_EVENT_DATA = 'SET_EVENT_DATA';
+export const SET_MY_AGENDA = 'SET_MY_AGENDA';
 export const SET_NOTES = 'SET_NOTES';
 export const LOADING_NOTES = 'LOADING_NOTES';
 export const SET_FAVORITES = 'SET_FAVORITES';

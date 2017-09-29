@@ -1,5 +1,4 @@
 import React from 'react';
-// import { connect } from 'react-redux';
 import { StyleSheet, Linking } from 'react-native';
 import {
     View,
@@ -8,7 +7,6 @@ import {
     Icon,
     Text
 } from 'native-base/src';
-import colors from '../native-base-theme/variables/commonColor';
 import BrandedContainer from './BrandedContainer';
 
 class About extends React.Component {
@@ -28,7 +26,7 @@ class About extends React.Component {
         const url = 'http://flpy.org/';
         Linking.canOpenURL(url).then(supported => {
             if (!supported) {
-                console.log('Can\'t handle url: ' + url);
+                console.warn('Can\'t handle url: ' + url);
             } else {
                 return Linking.openURL(url);
             }
@@ -39,7 +37,7 @@ class About extends React.Component {
         const url = 'https://twitter.com/flpycon';
         Linking.canOpenURL(url).then(supported => {
             if (!supported) {
-                console.log('Can\'t handle url: ' + url);
+                console.warn('Can\'t handle url: ' + url);
             } else {
                 return Linking.openURL(url);
             }
@@ -50,7 +48,7 @@ class About extends React.Component {
         const url = 'https://www.facebook.com/flpycon/';
         Linking.canOpenURL(url).then(supported => {
             if (!supported) {
-                console.log('Can\'t handle url: ' + url);
+                console.warn('Can\'t handle url: ' + url);
             } else {
                 return Linking.openURL(url);
             }
@@ -61,7 +59,7 @@ class About extends React.Component {
         return (
             <BrandedContainer lowerStyles={lowerStyles}>
                 <View style={styles.container}>
-                    <H2 style={{ textAlign: 'center', fontWeight: "bold" }}>Florida's First Python Conference</H2>
+                    <H2 style={{ textAlign: 'center', fontWeight: 'bold' }}>Florida's First Python Conference</H2>
                     <Text style={styles.marTop}>October 7, 2017 | 8am - 5pm</Text>
                     <Text style={styles.marTop}>101 South Garland Ave</Text>
                     <Text>Orlando, FL</Text>
@@ -98,23 +96,10 @@ const styles = StyleSheet.create({
     },
     details: {
         alignItems: 'flex-start',
-      marginTop:20
+        marginTop: 20
     },
     bold: {
         fontWeight: 'bold'
-    },
-    fieldHeading: {
-        fontWeight: 'bold',
-        marginTop: 10
-    },
-    lastUpdated: {
-        backgroundColor: colors.cardDefaultBg,
-        padding: 10
-    },
-    loading: {
-        height: 10,
-        width: 10,
-        marginLeft: 20
     },
     marTop: {
         marginTop: 20
@@ -126,32 +111,14 @@ const styles = StyleSheet.create({
         fontSize: 12,
         color: '#666',
         marginTop: 40,
-        marginBottom:10
+        marginBottom: 10
     }
 });
 
 const lowerStyles = {
     justifyContent: 'flex-start',
-    backgroundColor: "#fff",
+    backgroundColor: '#fff',
     marginHorizontal: 0
 };
 
-// const mapStateToProps = (state) => {
-//     return {
-//         // isLoading: state.speakers.isLoading,
-//         // isBackgroundLoading: state.speakers.isBackgroundLoading,
-//         // updated: state.speakers.updated,
-//         talks: state.speakers.talks
-//     };
-// };
-//
-// const mapDispatchToProps = (dispatch) => {
-//     return {
-//         toggleFavorite: () => {
-//             dispatch(toggleFavorite());
-//         }
-//     };
-// };
-
-// export default connect(mapStateToProps, mapDispatchToProps)(About);
 export default About;

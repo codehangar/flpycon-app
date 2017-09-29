@@ -12,7 +12,7 @@ import {
     ScrollableTab,
     Button
 } from 'native-base/src';
-import { fetchEventData, fetchSpeakers } from './data/speakers.actions';
+import { fetchEventData, fetchSpeakers } from './data/event.actions';
 import colors from '../native-base-theme/variables/commonColor';
 import personPlaceHolder from './images/person-placeholder.jpg';
 import { fetchFavorites, saveFavorite } from './data/favorites.actions';
@@ -140,10 +140,10 @@ const styles = StyleSheet.create({
 
 const mapStateToProps = (state) => {
     return {
-        isLoading: state.speakers.isLoading,
-        isBackgroundLoading: state.speakers.isBackgroundLoading,
-        updated: state.speakers.updated,
-        talks: state.speakers.talks,
+        isLoading: state.event.isLoading,
+        isBackgroundLoading: state.event.isBackgroundLoading,
+        updated: state.event.updated,
+        talks: state.event.talks,
         favorites: state.favorites
     };
 };

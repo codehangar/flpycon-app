@@ -27,7 +27,7 @@ class Contact extends React.Component {
         const url = 'mailto:hello@flpy.org?subject=Speaker Assistance';
         Linking.canOpenURL(url).then(supported => {
             if (!supported) {
-                console.log('Can\'t handle url: ' + url);
+                console.warn('Can\'t handle url: ' + url);
             } else {
                 return Linking.openURL(url);
             }
@@ -38,7 +38,7 @@ class Contact extends React.Component {
         const url = 'mailto:hello@flpy.org?subject=Question/Feedback';
         Linking.canOpenURL(url).then(supported => {
             if (!supported) {
-                console.log('Can\'t handle url: ' + url);
+                console.warn('Can\'t handle url: ' + url);
             } else {
                 return Linking.openURL(url);
             }

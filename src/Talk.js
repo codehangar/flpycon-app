@@ -134,10 +134,10 @@ const styles = StyleSheet.create({
 
 const mapStateToProps = (state) => {
     return {
-        // isLoading: state.speakers.isLoading,
-        // isBackgroundLoading: state.speakers.isBackgroundLoading,
-        // updated: state.speakers.updated,
-        talks: state.speakers.talks,
+        // isLoading: state.event.isLoading,
+        // isBackgroundLoading: state.event.isBackgroundLoading,
+        // updated: state.event.updated,
+        talks: state.event.talks,
         favorites: state.favorites
     };
 };
