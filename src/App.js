@@ -56,13 +56,15 @@ const AppNavigator = DrawerNavigator({
 }, {
     initialRouteName: 'Tracks',
     contentComponent: props => (
-        <View>
+        <View style={styles.fullHeight}>
             <StatusBar barStyle="default"/>
-            <BrandedContainer size="md" lowerStyles={styles.lowerStyles}>
+            <BrandedContainer style={styles.fullHeight}>
                 <Text style={styles.welcome}>Welcome to Florida Pycon 2017!</Text>
                 <DrawerItems {...props} activeTintColor="#efa320"/>
-                <Text style={styles.footer} onPress={goToURL}>This app was built by Code Hangar</Text>
-                <Text style={styles.footer2}>Copyright Florida PyCon © 2017. All rights reserved.</Text>
+                <View style={styles.footer}>
+                    <Text style={styles.footerText} onPress={goToURL}>This app was built by Code Hangar</Text>
+                    <Text style={[styles.footerText2]}>Copyright Florida PyCon © 2017. All rights reserved.</Text>
+                </View>
             </BrandedContainer>
         </View>
     )
@@ -75,6 +77,9 @@ export default () => (
 );
 
 const styles = {
+    fullHeight: {
+        flex: 1
+    },
     welcome: {
         fontWeight: 'bold',
         marginTop: 20,
@@ -82,20 +87,18 @@ const styles = {
         borderBottomColor: '#ccc',
         borderBottomWidth: 1
     },
-    lowerStyles: {
-        justifyContent: 'flex-start',
-        marginHorizontal: 0
-    },
     footer: {
         marginTop: 40,
-        marginLeft: 20,
+        marginBottom: 20,
+        marginLeft: 20
+    },
+    footerText: {
         fontSize: 12,
         color: '#bbb',
         textDecorationLine: 'underline'
     },
-    footer2: {
+    footerText2: {
         marginTop: 10,
-        marginLeft: 20,
         fontSize: 12,
         color: '#bbb'
     }

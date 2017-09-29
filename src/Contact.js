@@ -47,7 +47,7 @@ class Contact extends React.Component {
 
     render() {
         return (
-            <BrandedContainer lowerStyles={lowerStyles}>
+            <BrandedContainer size="lg">
                 <View style={styles.container}>
                     <H2 style={styles.marTop}>We're Here to Help</H2>
                     <Text note style={styles.note}>In case of emergency, please dial 911</Text>
@@ -72,7 +72,7 @@ class Contact extends React.Component {
 
 const styles = StyleSheet.create({
     container: {
-        padding:20,
+        padding: 20,
         alignItems: 'center'
     },
     bold: {
@@ -95,19 +95,13 @@ const styles = StyleSheet.create({
         marginTop: 20
     },
     note: {
-      marginTop: 20,
-      fontStyle: "italic"
+        marginTop: 20,
+        fontStyle: 'italic'
     },
     btn: {
         marginTop: 20,
         marginBottom: 20
     }
 });
-
-const lowerStyles = {
-    justifyContent: 'flex-start',
-    backgroundColor: "#fff",
-    marginHorizontal: 0
-};
 
 export default Contact;

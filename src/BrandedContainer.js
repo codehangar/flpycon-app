@@ -4,7 +4,8 @@ import {
     Image,
     View,
     ScrollView,
-    ImageBackground
+    ImageBackground,
+    Dimensions
 } from 'react-native';
 import {
     Container,
@@ -13,31 +14,32 @@ import {
 } from 'native-base/src';
 import colors from '../native-base-theme/variables/commonColor';
 
+const { height, width } = Dimensions.get('window');
 const background = require('./images/flpy-gradient.png');
-console.log('background', background); // eslint-disable-line no-console
 const logo = require('./images/flpy-logo.png');
 
 export default class BrandedContainer extends React.PureComponent {
-    getLowerStyles = () => {
+    getSize = () => {
         switch (this.props.size) {
             case'sm':
-                return { ...styles.sm, ...this.props.lowerStyles };
+                return styles.sm;
             case'md':
-                return { ...styles.md, ...this.props.lowerStyles };
+                return styles.md;
             case'lg':
+                return styles.lg;
             default:
-                return { ...styles.lg, ...this.props.lowerStyles };
+                return styles.md;
         }
     };
 
     wrapLowerContent = (lowerContent) => {
-        const lowerStyles = this.getLowerStyles();
+        const size = this.getSize();
         return (
             <ScrollView contentContainerStyle={styles.container}>
-                <ImageBackground source={background} style={styles.upper} resizeMode="cover">
+                <ImageBackground source={background} style={[styles.upper, size]} resizeMode="cover">
                     <Image source={logo} style={styles.shadow} resizeMode="contain"/>
                 </ImageBackground>
-                <View style={lowerStyles}>
+                <View style={this.props.lowerStyles}>
                     {lowerContent}
                 </View>
             </ScrollView>
@@ -55,13 +57,9 @@ export default class BrandedContainer extends React.PureComponent {
 
 // const styles = StyleSheet.create({
 const styles = {
-    // container: {
-    //     position: 'absolute',
-    //     top: 0,
-    //     bottom: 0,
-    //     left: 0,
-    //     right: 0
-    // },
+    container: {
+        // flex: 1
+    },
     upper: {
         flex: 1,
         backgroundColor: colors.brandSidebar,
@@ -69,19 +67,13 @@ const styles = {
         padding: 20
     },
     lg: {
-        flex: 2,
-        justifyContent: 'center',
-        marginHorizontal: 20
+        height: height / 3
     },
     md: {
-        flex: 3,
-        justifyContent: 'center',
-        marginHorizontal: 20
+        height: height / 4
     },
     sm: {
-        flex: 4,
-        justifyContent: 'center',
-        marginHorizontal: 20
+        height: height / 5
     },
     shadow: {
         flex: 1,
