@@ -1,15 +1,13 @@
 import { getItem, setItem, storageKeys } from './async-storage'
 
 export async function getNotes() {
-    let val = '';
     try {
         const allNotesStr = await getItem(storageKeys.NOTES);
-        const allNotes = JSON.parse(allNotesStr) || {};
-        val = allNotes;
+        return JSON.parse(allNotesStr) || {};
     } catch (error) {
-        console.error('NotesStorage error: ' + error.message);
+        console.warn('NotesStorage error: ' + error.message);
+        return {};
     }
-    return val;
 }
 
 export async function setNotes(talkId, note) {
@@ -17,12 +15,11 @@ export async function setNotes(talkId, note) {
         throw new Error('talkId is required');
     }
     try {
-        console.log('note', note); // eslint-disable-line no-console
         const allNotesStr = await getItem(storageKeys.NOTES);
         const allNotes = JSON.parse(allNotesStr) || {};
         allNotes[talkId] = note;
         await setItem(storageKeys.NOTES, JSON.stringify(allNotes));
     } catch (error) {
-        console.error('NotesStorage error: ' + error.message);
+        console.warn('NotesStorage error: ' + error.message);
     }
 }

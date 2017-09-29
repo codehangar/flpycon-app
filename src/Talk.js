@@ -13,24 +13,16 @@ import {
 } from 'native-base/src';
 import colors from '../native-base-theme/variables/commonColor';
 import personPlaceHolder from './images/person-placeholder.jpg';
-import { fetchNotes, saveNotes } from './data/notes.actions';
-import { fetchFavorites, saveFavorite } from './data/favorites.actions';
+import { saveFavorite } from './data/favorites.actions';
+import TalkNotes from './TalkNotes';
 
-class Feed extends React.Component {
+class Talk extends React.Component {
     static navigationOptions = ({ navigation, screenProps }) => ({
         title: `Talk Detailsss`,
         headerBackTitle: null,
         headerTintColor: '#efa320',
         headerTitleStyle: { color: null }
     });
-
-    async componentWillMount() {
-        this.props.fetchNotes();
-    }
-
-    updateNotes = async (note) => {
-        this.props.saveNotes(this.props.navigation.state.params.talkId, note);
-    };
 
     renderFavoriteBtn = (item) => {
         let icon = <Icon style={styles.star} name="ios-star-outline"/>;
@@ -47,12 +39,10 @@ class Feed extends React.Component {
         );
     };
 
-    renderList = () => {
+    renderTalkDetails = () => {
         if (this.props.talks) {
             const talk = this.props.talks.find((t) => t.id === this.props.navigation.state.params.talkId);
             const img = talk.speaker.headshot ? { uri: talk.speaker.headshot } : personPlaceHolder;
-
-            const notesStr = this.props.notes[this.props.navigation.state.params.talkId];
             return (
                 <View>
                     <View style={styles.section}>
@@ -71,12 +61,7 @@ class Feed extends React.Component {
                         <Text>{talk.description}</Text>
                     </View>
                     <View style={styles.section}>
-                        <Text style={styles.fieldHeading}>NOTES</Text>
-                        <Input style={styles.input} multiline
-                               placeholder='Enter notes...'
-                               value={notesStr}
-                               onChangeText={this.updateNotes}
-                        />
+                        <TalkNotes talkId={this.props.navigation.state.params.talkId}/>
                     </View>
                 </View>
             );
@@ -89,7 +74,7 @@ class Feed extends React.Component {
             <Container>
                 <KeyboardAvoidingView behavior="position">
                     <ScrollView style={styles.container}>
-                        {this.renderList()}
+                        {this.renderTalkDetails()}
                     </ScrollView>
                 </KeyboardAvoidingView>
             </Container>
@@ -153,26 +138,16 @@ const mapStateToProps = (state) => {
         // isBackgroundLoading: state.speakers.isBackgroundLoading,
         // updated: state.speakers.updated,
         talks: state.speakers.talks,
-        notes: state.notes,
         favorites: state.favorites
     };
 };
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        fetchNotes: () => {
-            dispatch(fetchNotes());
-        },
-        fetchFavorites: () => {
-            dispatch(fetchFavorites());
-        },
-        saveNotes: (talkId, note) => {
-            dispatch(saveNotes(talkId, note));
-        },
         saveFavorite: (talkId) => {
             dispatch(saveFavorite(talkId));
         }
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Feed);
+export default connect(mapStateToProps, mapDispatchToProps)(Talk);

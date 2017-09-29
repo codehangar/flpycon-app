@@ -203,7 +203,7 @@ const mapStateToProps = (state) => {
         // isBackgroundLoading: state.speakers.isBackgroundLoading,
         // updated: state.speakers.updated,
         talks: state.speakers.talks,
-        notes: state.notes,
+        notes: state.notes.data,
         favorites: state.favorites
     };
 };
