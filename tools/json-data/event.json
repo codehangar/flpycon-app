@@ -6,6 +6,26 @@
   ],
   "talks": [
     {
+      "id": "asteroids",
+      "title": "Detecting Asteroids with Neural Networks",
+      "description": "TensorFlow is an open-source software library for Machine Intelligence. In this talk, we will learn how to use it to build and train a neural network with the goal of correctly identifying asteroids in astrophotography data. The dataset used will be from the Sloan Digital Sky Survey, one of the most ambitious and influential surveys in the history of astronomy.\n\nUsing this data, we will learn how to create and featurize a training dataset, build and fit a neural network, and train our model to correctly identify asteroids visible from Earth.\n\nThis talk is for a wide range of Python developers, from those who have heard of machine learning, but have never experimented with it, to those who have significant experience with neural networks, but have never used TensorFlow before.\n\nThe audience should have some basic Python knowledge, but no formal or informal experience with machine intelligence is assumed.\n\nAfter watching this talk, the audience should know how to determine and develop features, how and why to build a training dataset, how to build and train a neural network, and some other approaches to supervised learning.",
+      "time": "10:00am - 10:50am",
+      "location": "PowerDMS",
+      "track": "Data",
+      "speaker": {
+        "headshot": "http://flpy.org/wp-content/uploads/2017/09/dustin.png",
+        "name": "Dustin Ingram",
+        "title": "Software Engineer",
+        "companyName": "PromptWorks",
+        "links": [
+          {
+            "type": "Github",
+            "url": "https://github.com/di"
+          }
+        ]
+      }
+    },
+    {
       "id": "postgres",
       "title": "Postgres at any scale",
       "description": "Keeping your app performant is table stakes these days, but it doesn’t have to be rocket science. We’ll look at the basics for small, medium, and even terabytes of data for what you need to do to keep things performing well. We’ll start with the basics you need to know as an app developer about interacting with your database, then dig into how you can start to analyze performance. We’ll look at things you need to know for a small application, then the things you should be cautious of as you start to layer in other items you need to be aware of for performance including: Cache hit ratio, Index hit ratio, Proper use of indexes, Bloat, Efficient joins, Sharding",
@@ -25,26 +45,6 @@
           {
             "type": "website",
             "url": "http://www.craigkerstiens.com/"
-          }
-        ]
-      }
-    },
-    {
-      "id": "asteroids",
-      "title": "Detecting Asteroids with Neural Networks",
-      "description": "TensorFlow is an open-source software library for Machine Intelligence. In this talk, we will learn how to use it to build and train a neural network with the goal of correctly identifying asteroids in astrophotography data. The dataset used will be from the Sloan Digital Sky Survey, one of the most ambitious and influential surveys in the history of astronomy.\n\nUsing this data, we will learn how to create and featurize a training dataset, build and fit a neural network, and train our model to correctly identify asteroids visible from Earth.\n\nThis talk is for a wide range of Python developers, from those who have heard of machine learning, but have never experimented with it, to those who have significant experience with neural networks, but have never used TensorFlow before.\n\nThe audience should have some basic Python knowledge, but no formal or informal experience with machine intelligence is assumed.\n\nAfter watching this talk, the audience should know how to determine and develop features, how and why to build a training dataset, how to build and train a neural network, and some other approaches to supervised learning.",
-      "time": "10:00am - 10:50am",
-      "location": "PowerDMS",
-      "track": "Data",
-      "speaker": {
-        "headshot": "http://flpy.org/wp-content/uploads/2017/09/dustin.png",
-        "name": "Dustin Ingram",
-        "title": "Software Engineer",
-        "companyName": "PromptWorks",
-        "links": [
-          {
-            "type": "Github",
-            "url": "https://github.com/di"
           }
         ]
       }
@@ -73,6 +73,34 @@
           {
             "type": "Web",
             "url": "https://www.geekgirlbeta.com/"
+          }
+        ]
+      }
+    },
+    {
+      "id": "sentiment_analysis",
+      "title": "How positive are your tweets? Sentiment analysis with python.",
+      "description": "Ever wonder if tweets that are on your time line are trending positively or negatively? Would you like to be able to see in real time if this is happening to you or to a specific topic or hashtag? This talk will show you how you can stream your tweets using a library called ‘tweepy’, store them in a data frame using ‘pandas’, and then extract subjectivity and polarity using textblob. Additionally, this talk will show you how this can be done with python with minimal lines of code compared to this same function being performed with R or SAS. After walking through the steps, we will perform an actual live demo of capturing tweets using audience participation.",
+      "time": "11:00am - 11:50am",
+      "location": "PowerDMS",
+      "track": "Data",
+      "speaker": {
+        "headshot": "http://flpy.org/wp-content/uploads/2017/09/ahmed-circle.png",
+        "name": "Ahmed Sherif",
+        "title": "Data Scientist",
+        "companyName": "",
+        "links": [
+          {
+            "type": "Twitter",
+            "url": "https://twitter.com/TheAhmedSherif"
+          },
+          {
+            "type": "Web",
+            "url": "http://theahmedsherif.com/"
+          },
+          {
+            "type": "Github",
+            "url": "https://github.com/asherif844zxl"
           }
         ]
       }
@@ -115,6 +143,26 @@
           {
             "type": "Github",
             "url": "https://github.com/tleonhardt"
+          }
+        ]
+      }
+    },
+    {
+      "id": "apache_beam",
+      "title": "Unified Batch and Stream Processing with Apache Beam",
+      "description": "Currently, some popular data processing frameworks such as Apache Spark consider batch and stream processing jobs independently. The APIs across different processing systems such as Apache Spark or Apache Flink are also different. This forces the end user to learn a potentially new system every time. Apache Beam [1] addresses this problem by providing a unified programming model that can be used for both batch and streaming pipelines. The Beam SDK allows the user to execute these pipelines against different execution engines. Currently, Apache Beam provides a Java and Python SDK.\n\n In the talk, we start off by providing an overview of Apache Beam using the Python SDK and the problems it tries to address from an end user’s perspective. We cover the core programming constructs in the Beam model such as PCollections, ParDo, GroupByKey, windowing, and triggers. We describe how these constructs make it possible for pipelines to be executed in a unified fashion in both batch and streaming. Then we use examples to demonstrate these capabilities. The examples showcase using Beam for stream processing and real time data analysis, and how Beam can be used for feature engineering in some Machine Learning applications using Tensorflow. Finally, we end with Beam’s vision of creating runner and execution independent graphs using the Beam FnApi [2].\n\n Apache Beam [1] is a top level Apache project and is completely open source. The code for Beam can be found on Github [3].\n\n [1] https://beam.apache.org/ [2] http://s.apache.org/beam-fn-api [3] https://github.com/apache/beam",
+      "time": "1:20pm - 2:10pm",
+      "location": "PowerDMS",
+      "track": "Data",
+      "speaker": {
+        "headshot": "http://flpy.org/wp-content/uploads/2017/09/sourabh-circle.png",
+        "name": "Sourabh Bajaj",
+        "title": "Software Engineer",
+        "companyName": "",
+        "links": [
+          {
+            "type": "Twitter",
+            "url": "https://twitter.com/sb2nov"
           }
         ]
       }
@@ -164,6 +212,26 @@
       }
     },
     {
+      "id": "json",
+      "title": "The JSON Transformations Project",
+      "description": "In 2017 there is structured data everywhere, and new data sources emerge each day. There are lots of Python tools for processing this data: Analytics, statistics, visualization, natural language processing, machine learning, etc. But recent experiments have demonstrated that there are untapped opportunities for innovation in new methods of providing users quick access to these disparate data sources, transforming that data, and streaming it into the wealth of existing Python tools. This talk will discuss some of those opportunities and demonstrate related, lesser-known, yet valuable community-based Python tools that have just recently emerged and are now available for free.",
+      "time": "2:20pm- 3:10pm",
+      "location": "PowerDMS",
+      "track": "Data",
+      "speaker": {
+        "headshot": "http://flpy.org/wp-content/uploads/2017/09/brian-test.jpg",
+        "name": "Brian Peterson",
+        "title": "Project Manager",
+        "companyName": "",
+        "links": [
+          {
+            "type": "Github",
+            "url": "https://github.com/bpeterso2000"
+          }
+        ]
+      }
+    },
+    {
       "id": "one_for_all",
       "title": "Not For One But For All",
       "description": "Python is a booming language in the United States and finds itself integrated in practically every discipline involving software engineering. When new resources come out for us to develop better or faster we tend to forget that we build products for people who aren’t like us or who aren’t in situations like us. This is especially true of the web. In this talk, we will discuss how to increase our web apps accessibility through handy techniques and tools and how you can make use of the features of web frameworks like Flask or Django to make anyone coming to our spot on the Internet a bit more pleasant for everyone without it costing much more time.",
@@ -187,6 +255,34 @@
           {
             "type": "Github",
             "url": "https://github.com/maxcell"
+          }
+        ]
+      }
+    },
+    {
+      "id": "one_for_all",
+      "title": "Your Brain on Python, Literally",
+      "description": "In the near future, when you get sick, you’ll be able to get treatment that’s been personally tailored to your exact situation. This is possible thanks to the “Body-on-a-Chip”, an emerging field of study in which human cells with your genetic material are grown into a miniature system that mimics the function of every major organ in your body.\n\n These little systems generate a lot of data, and Python is a great way to gain insight into what these systems are doing and how they’re responding to a treatment. Data from the “brain” of these systems, a “brain-on-a-chip” made from real human neurons, is some of the most challenging and exciting data that there is to analyze. We can gain insight into how these brain cells are ‘talking’ to each other and how they’re reorganizing themselves, and how their ability to do these things changes under different conditions. These insights can help guide treatment decisions, give understanding into the basic nature of the brain in general, and open up exciting new opportunities for technologies that sound like they’re from science fiction.\n\n This beginner-friendly talk will walk you through how it’s done, from getting the raw data to the final analysis, highlighting how everyone’s favorite language makes the whole endeavor a breeze.",
+      "time": "2:20pm- 3:10pm",
+      "location": "The Iron Yard",
+      "track": "Speaker's Choice",
+      "speaker": {
+        "headshot": "http://flpy.org/wp-content/uploads/2017/09/max-circle.png",
+        "name": "Max Jackson",
+        "title": "Software Engineer",
+        "companyName": "",
+        "links": [
+          {
+            "type": "Twitter",
+            "url": "https://twitter.com/deadHorsePinata"
+          },
+          {
+            "type": "Facebook",
+            "url": "https://www.facebook.com/Max.E.Jackson"
+          },
+          {
+            "type": "Github",
+            "url": "https://github.com/maxjackson"
           }
         ]
       }
