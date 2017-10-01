@@ -57,7 +57,7 @@ class About extends React.Component {
 
     render() {
         return (
-            <BrandedContainer size="lg">
+            <BrandedContainer size="lg" lowerStyles={styles.lowerStyles}>
                 <View style={styles.container}>
                     <H2 style={{ textAlign: 'center', fontWeight: 'bold' }}>Florida's First Python Conference</H2>
                     <Text style={styles.marTop}>October 7, 2017 | 8am - 5pm</Text>
@@ -112,6 +112,9 @@ const styles = StyleSheet.create({
         color: '#666',
         marginTop: 40,
         marginBottom: 10
+    },
+    lowerStyles: {
+        backgroundColor: '#fff'
     }
 });
 
