@@ -32,10 +32,10 @@ class TalkListItem extends React.PureComponent {
             <CHCard key={this.props.talk.id}>
                 <CHCardItem bordered row>
                     <CHBody>
-                        <Text style={styles.bold}>Track: {this.props.talk.track}</Text>
+                        <Text style={styles.bold}>{this.props.talk.time}</Text>
                     </CHBody>
                     <CHRight>
-                        <Text note>{this.props.talk.time}</Text>
+                        <Text note>{this.props.talk.location}</Text>
                     </CHRight>
                 </CHCardItem>
                 <CHCardItem bordered row button onPress={navToTalk}>
@@ -52,7 +52,7 @@ class TalkListItem extends React.PureComponent {
                 </CHCardItem>
                 <CHCardItem bordered row>
                     <CHLeft>
-                        <Text note>{this.props.talk.location}</Text>
+                        <Text note>Track: {this.props.talk.track}</Text>
                     </CHLeft>
                     <CHRight>
                         {this.renderFavoriteBtn(this.props.talk)}
