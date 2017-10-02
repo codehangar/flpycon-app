@@ -84,6 +84,23 @@ https://play.google.com/store/apps/details?id=io.codehangar.flpycon_app
 https://itunes.apple.com/us/app/fl-pycon/id1287404908?mt=8&ign-mpt=uo%3D4
 ---
 
+#### Pushing Live/Dynamic Updates
+
+- Log in to Expo XDE with the following:
+  - `codehangar`
+  - `{password}`
+- Load the Florida PyCon project
+- Give it a test via Expo on emulator or device (just make sure it compiles, and everything looks as expected)
+- Click the “Publish” Button
+- Expo XDE should give a success message in the left panel
+- https://expo.io/@codehangar/flpycon-app should show that it has been updated XX minutes ago
+- Open the production app (downloaded from the app store), close it, and re-open it to verify the latest code has been pulled down
+
+
+---
+
+---
+
 This project was bootstrapped with [Create React Native App](https://github.com/react-community/create-react-native-app).
 
 Below you'll find information about performing common tasks. The most recent version of this guide is available [here](https://github.com/react-community/create-react-native-app/blob/master/react-native-scripts/template/README.md).
