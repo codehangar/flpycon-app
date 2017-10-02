@@ -10,7 +10,7 @@
       "title": "Detecting Asteroids with Neural Networks",
       "description": "TensorFlow is an open-source software library for Machine Intelligence. In this talk, we will learn how to use it to build and train a neural network with the goal of correctly identifying asteroids in astrophotography data. The dataset used will be from the Sloan Digital Sky Survey, one of the most ambitious and influential surveys in the history of astronomy.\n\nUsing this data, we will learn how to create and featurize a training dataset, build and fit a neural network, and train our model to correctly identify asteroids visible from Earth.\n\nThis talk is for a wide range of Python developers, from those who have heard of machine learning, but have never experimented with it, to those who have significant experience with neural networks, but have never used TensorFlow before.\n\nThe audience should have some basic Python knowledge, but no formal or informal experience with machine intelligence is assumed.\n\nAfter watching this talk, the audience should know how to determine and develop features, how and why to build a training dataset, how to build and train a neural network, and some other approaches to supervised learning.",
       "time": "10:00am - 10:50am",
-      "location": "PowerDMS",
+      "location": "PowerDMS 3RD FL",
       "track": "Data",
       "speaker": {
         "headshot": "http://flpy.org/wp-content/uploads/2017/09/dustin.png",
@@ -30,7 +30,7 @@
       "title": "Postgres at any scale",
       "description": "Keeping your app performant is table stakes these days, but it doesn’t have to be rocket science. We’ll look at the basics for small, medium, and even terabytes of data for what you need to do to keep things performing well. We’ll start with the basics you need to know as an app developer about interacting with your database, then dig into how you can start to analyze performance. We’ll look at things you need to know for a small application, then the things you should be cautious of as you start to layer in other items you need to be aware of for performance including: Cache hit ratio, Index hit ratio, Proper use of indexes, Bloat, Efficient joins, Sharding",
       "time": "10:00am - 10:50am",
-      "location": "Canvs",
+      "location": "Canvs 1ST FL",
       "track": "Web",
       "speaker": {
         "headshot": "http://flpy.org/wp-content/uploads/2017/09/craig-circle.png",
@@ -54,7 +54,7 @@
       "title": "Code Reviews Using Art Critique Principles",
       "description": "Code reviews don’t have to be a time consuming, morale zapping, arduous tasks. Not only can they catch bugs and errors but they can contribute in positive ways to the individual developer, the team, management and company as a whole.\n\n Art critiques have existed in academia for hundreds of years. The methodology of the critique has evolved to be time sensitive and productive, while keeping the enthusiasm of the student artist intact.\n\n The purpose of the art critique is to get peers and mentors to look at the work and raise any problems they may see. It’s also time where people with more experience could contribute their knowledge in a helpful way. This process is about producing the best work, quickly and in a productive and constructive way.\n\n These methods can be applied to code review.\n\n PyCon attendees will come away from this talk with a set of methods that will enable them to preform constructive code reviews using art critique principles.",
       "time": "10:00am - 10:50am",
-      "location": "The Iron Yard",
+      "location": "The Iron Yard 1ST FL",
       "track": "Speaker's Choice",
       "speaker": {
         "headshot": "http://flpy.org/wp-content/uploads/2017/09/stacy-circle.png",
@@ -82,7 +82,7 @@
       "title": "How positive are your tweets? Sentiment analysis with python.",
       "description": "Ever wonder if tweets that are on your time line are trending positively or negatively? Would you like to be able to see in real time if this is happening to you or to a specific topic or hashtag? This talk will show you how you can stream your tweets using a library called ‘tweepy’, store them in a data frame using ‘pandas’, and then extract subjectivity and polarity using textblob. Additionally, this talk will show you how this can be done with python with minimal lines of code compared to this same function being performed with R or SAS. After walking through the steps, we will perform an actual live demo of capturing tweets using audience participation.",
       "time": "11:00am - 11:50am",
-      "location": "PowerDMS",
+      "location": "PowerDMS 3RD FL",
       "track": "Data",
       "speaker": {
         "headshot": "http://flpy.org/wp-content/uploads/2017/09/ahmed-circle.png",
@@ -110,7 +110,7 @@
       "title": "Using Python *for* Garbage Collection",
       "description": "One of the major things that my wife and I have looked for wherever we move is natural beauty and a good collection of public green space. So, when I walked by a park and creek reserve on the north end of our city, only to find more trash than green space, I was mortified. Working together with several individuals from Reddit we got the park to a reasonably clean state, removing over 400 gallons of trash. The experience made me realize, however, with over 480 parks, that as our city grew we needed a more self-sustaining solution to this problem.\n\nAfter sharing the story on Reddit, one thing that struck me was how many people were eager and capable of physically helping with the problem but had insufficient supplies or funds, and how many people couldn’t physically help, but were eager to throw money at the problem. I’m not political, and I certainly don’t have the time or ability to clean up 480+ parks, but like many of you, I know how to throw some code together. So I decided to build a tool that would connect those individuals with the funds to help to those with the time and physical ability. This talk is about how I created that tool, which consists of REST API, Website, and Android/IOS application using only Python and Open Source technologies. Finally, it is about how all of us as programmers have the power to make a visibly positive impact in our community even from the comfort and familiarity of our keyboards.",
       "time": "11:00am - 11:50am",
-      "location": "Canvs",
+      "location": "Canvs 1ST FL",
       "track": "Web",
       "speaker": {
         "headshot": "http://flpy.org/wp-content/uploads/2017/09/timothy-circle.png",
@@ -130,7 +130,7 @@
       "title": "How to quickly build feature-rich interactive command-line applications with cmd2",
       "description": "cmd2 is a tool for building interactive command line applications in Python. Its goal is to make it quick and easy for developers to build feature-rich and user-friendly interactive command line applications. It provides a simple API which is an extension of Python’s built-in cmd module. cmd2 provides a wealth of features on top of cmd to make your life easier and eliminates much of the boilerplate code which would be necessary when using cmd.",
       "time": "11:00am - 11:50am",
-      "location": "The Iron Yard",
+      "location": "The Iron Yard 1ST FL",
       "track": "Speaker's Choice",
       "speaker": {
         "headshot": "http://flpy.org/wp-content/uploads/2017/09/TODD-circle.png",
@@ -152,7 +152,7 @@
       "title": "Unified Batch and Stream Processing with Apache Beam",
       "description": "Currently, some popular data processing frameworks such as Apache Spark consider batch and stream processing jobs independently. The APIs across different processing systems such as Apache Spark or Apache Flink are also different. This forces the end user to learn a potentially new system every time. Apache Beam [1] addresses this problem by providing a unified programming model that can be used for both batch and streaming pipelines. The Beam SDK allows the user to execute these pipelines against different execution engines. Currently, Apache Beam provides a Java and Python SDK.\n\n In the talk, we start off by providing an overview of Apache Beam using the Python SDK and the problems it tries to address from an end user’s perspective. We cover the core programming constructs in the Beam model such as PCollections, ParDo, GroupByKey, windowing, and triggers. We describe how these constructs make it possible for pipelines to be executed in a unified fashion in both batch and streaming. Then we use examples to demonstrate these capabilities. The examples showcase using Beam for stream processing and real time data analysis, and how Beam can be used for feature engineering in some Machine Learning applications using Tensorflow. Finally, we end with Beam’s vision of creating runner and execution independent graphs using the Beam FnApi [2].\n\n Apache Beam [1] is a top level Apache project and is completely open source. The code for Beam can be found on Github [3].\n\n [1] https://beam.apache.org/ [2] http://s.apache.org/beam-fn-api [3] https://github.com/apache/beam",
       "time": "1:20pm - 2:10pm",
-      "location": "PowerDMS",
+      "location": "PowerDMS 3RD FL",
       "track": "Data",
       "speaker": {
         "headshot": "http://flpy.org/wp-content/uploads/2017/09/sourabh-circle.png",
@@ -172,7 +172,7 @@
       "title": "Swiss Train Deployments",
       "description": "A Swiss Train deployment is a general-purpose deployment philosophy based on ideas from the Ember.js development process, modern browser releases, and various open-source project releases, such as the Ubuntu project.\n\nIn this talk, we’ll explore the motivation for a Swiss Train style deployment, the problems which it seeks to solve in existing deployment philosophies, and the core philosophy of a Swiss Train deployment.\n\nThis talk is for developers who are responsible for deploying code (not just Python!) to production in a timely manner, while still providing a stable ecosystem for their users.\n\nThe only background knowledge required is some amount of experience “deploying” code or releasing applications, whatever that may mean for an individual developer (essentially, this will allow the audience member to better empathize with the inefficiencies of current deployment philosophies (or lack thereof) and highlight the advantage of the proposed philosophy.\n\nAfter watching this talk, the audience should be able to: – understand why it is important to have a deployment philosophy – see the inefficiencies in current deployment philosophies – present a strong argument for adopting Swiss Train style deployments – be able to implement the deployment philosophy in their own workflow.",
       "time": "1:20pm - 2:10pm",
-      "location": "Canvs",
+      "location": "Canvs 1ST FL",
       "track": "Web",
       "speaker": {
         "headshot": "http://flpy.org/wp-content/uploads/2017/09/dustin.png",
@@ -192,7 +192,7 @@
       "title": "Feminism & Functional Programming: When Paradigms Shift",
       "description": "Today, developers play a bigger role than ever in shaping culture. Often, those who don’t identify with the people who create a culture, don’t have power within that culture. This is why diversity in tech is so important. I’ll talk about controversial topics like feminism & functional programming…",
       "time": "1:20pm - 2:10pm",
-      "location": "The Iron Yard",
+      "location": "The Iron Yard 1ST FL",
       "track": "Speaker's Choice",
       "speaker": {
         "headshot": "http://flpy.org/wp-content/uploads/2017/09/cassie-circel.png",
@@ -216,7 +216,7 @@
       "title": "The JSON Transformations Project",
       "description": "In 2017 there is structured data everywhere, and new data sources emerge each day. There are lots of Python tools for processing this data: Analytics, statistics, visualization, natural language processing, machine learning, etc. But recent experiments have demonstrated that there are untapped opportunities for innovation in new methods of providing users quick access to these disparate data sources, transforming that data, and streaming it into the wealth of existing Python tools. This talk will discuss some of those opportunities and demonstrate related, lesser-known, yet valuable community-based Python tools that have just recently emerged and are now available for free.",
       "time": "2:20pm- 3:10pm",
-      "location": "PowerDMS",
+      "location": "PowerDMS 3RD FL",
       "track": "Data",
       "speaker": {
         "headshot": "http://flpy.org/wp-content/uploads/2017/09/brian-test.jpg",
@@ -236,7 +236,7 @@
       "title": "Not For One But For All",
       "description": "Python is a booming language in the United States and finds itself integrated in practically every discipline involving software engineering. When new resources come out for us to develop better or faster we tend to forget that we build products for people who aren’t like us or who aren’t in situations like us. This is especially true of the web. In this talk, we will discuss how to increase our web apps accessibility through handy techniques and tools and how you can make use of the features of web frameworks like Flask or Django to make anyone coming to our spot on the Internet a bit more pleasant for everyone without it costing much more time.",
       "time": "2:20pm- 3:10pm",
-      "location": "Canvs",
+      "location": "Canvs 1ST FL",
       "track": "Web",
       "speaker": {
         "headshot": "http://flpy.org/wp-content/uploads/2017/09/maxcell-circle.png",
@@ -264,7 +264,7 @@
       "title": "Your Brain on Python, Literally",
       "description": "In the near future, when you get sick, you’ll be able to get treatment that’s been personally tailored to your exact situation. This is possible thanks to the “Body-on-a-Chip”, an emerging field of study in which human cells with your genetic material are grown into a miniature system that mimics the function of every major organ in your body.\n\n These little systems generate a lot of data, and Python is a great way to gain insight into what these systems are doing and how they’re responding to a treatment. Data from the “brain” of these systems, a “brain-on-a-chip” made from real human neurons, is some of the most challenging and exciting data that there is to analyze. We can gain insight into how these brain cells are ‘talking’ to each other and how they’re reorganizing themselves, and how their ability to do these things changes under different conditions. These insights can help guide treatment decisions, give understanding into the basic nature of the brain in general, and open up exciting new opportunities for technologies that sound like they’re from science fiction.\n\n This beginner-friendly talk will walk you through how it’s done, from getting the raw data to the final analysis, highlighting how everyone’s favorite language makes the whole endeavor a breeze.",
       "time": "2:20pm- 3:10pm",
-      "location": "The Iron Yard",
+      "location": "The Iron Yard 1ST FL",
       "track": "Speaker's Choice",
       "speaker": {
         "headshot": "http://flpy.org/wp-content/uploads/2017/09/max-circle.png",
@@ -292,7 +292,7 @@
       "title": "Running Python Web Apps…. on Azure?",
       "description": "Python on Microsoft Azure? You’ve got to be kidding me right? Nobody does that!\n\nIn today’s world, that couldn’t be further from the truth. Along with it’s investments in open source, Microsoft is making Azure a great platform for running apps.. period. In this talk, you’ll be introduced to a few of the services available in Azure that you can leverage for building out your web applications today. You’ll see how easily you can get your web app running in the cloud, connected to a NoSQL database, and integrating with a host of other useful services.\n\nThere is quite a bit available for Python Developers in Azure. Join me to get a taste of what’s possible.",
       "time": "3:20pm- 4:10pm",
-      "location": "Canvs",
+      "location": "Canvs 1ST FL",
       "track": "Web",
       "speaker": {
         "headshot": "http://flpy.org/wp-content/uploads/2017/09/head_shot-Cecil-Phillip-e1506536786517.png",
@@ -320,7 +320,7 @@
       "title": "Scraping Data from Websites",
       "description": "In this talk I am going to show you how to scrape data from websites using the module BeautifulSoup. This talk assumes you know some basic python syntax and data modeling tools. After this talk you should be able to parse the data on a website and store whatever you need.\n\n      There are different ways that we can scrape data from a website, throughout the process we will take care not to overburden the website and not scrape anything forbidden by the web server. We are going to use a public library for python called “Beautiful Soup”, this is a really good tool when we want to take some information from a site. With this we also are going to mention how can we store this data into a CSV and Json file.",
       "time": "3:20pm- 4:10pm",
-      "location": "PowerDMS",
+      "location": "PowerDMS 3RD FL",
       "track": "Data",
       "speaker": {
         "headshot": "http://flpy.org/wp-content/uploads/2017/09/miguel-circle.png",
@@ -344,7 +344,7 @@
       "title": "Stand Out",
       "description": "If you can code your way out of a paper bag (or even if you can’t) and want to differentiate yourself in an organization, you can. Come and learn tips that can help you to Stand Out in your organization. These tips can help you successfully lead changes big or small, or simply improve your ability to get people to listen to your suggestions. All of these can help you to Stand Out in your organization.",
       "time": "3:30pm- 4:20pm",
-      "location": "The Iron Yard",
+      "location": "The Iron Yard 1ST FL",
       "track": "Speaker's Choice",
       "speaker": {
         "headshot": "http://flpy.org/wp-content/uploads/2017/09/IMG_1424-Doug-Faist-e1506536859426.jpg",
@@ -364,7 +364,7 @@
       "title": "Geospatial Data Fusion – Beyond Bare Earth",
       "description": "Point clouds make for compelling 3D imagery, but there’s real engineering information in there too! See what we are mining out of airborne laser scanning data to enhance the resilience of coastal communities. Dr. Stephen Medeiros, a lecturer in Civil Engineering at the University of Central Florida, describes his team’s work in Geospatial Data Fusion for coastal resilience. Dr. Medeiros uses airborne laser scanning data (aka lidar) to characterize surface roughness for use in computer models for hurricane storm surge. All of his students are required to learn and apply Python to their data science tasks such as ETL, machine learning, and statistical analysis of a variety of environmental data such as wind speeds, water levels, and 3D laser scanning point clouds. By describing the coastal floodplain in intricate detail, Dr. Medeiros and his students study how the roughness of the landscape influence hurricane winds and storm surge behavior. This work is carried out on the STOKES HPC at the Advanced Research Computing Center in UCF’s Institute for Simulation and Training.",
       "time": "4:30pm- 5:20pm",
-      "location": "PowerDMS",
+      "location": "PowerDMS 3RD FL",
       "track": "Data",
       "speaker": {
         "headshot": "http://flpy.org/wp-content/uploads/2017/09/stephen-circle.png",
@@ -384,7 +384,7 @@
       "title": "Using Django with modern SPA Frameworks",
       "description": "Traditional web frameworks are over. Done. Right? Wrong! In this talk I will show you how I combined an excellent Single Page Application JavaScript framework (Vue.js) with Django and the amazing Django Rest Framework to get the best possible results, after evaluating other languages and frameworks.",
       "time": "4:30pm- 5:20pm",
-      "location": "Canvs",
+      "location": "Canvs 1ST FL",
       "track": "Web",
       "speaker": {
         "headshot": "http://flpy.org/wp-content/uploads/2017/09/bo-circle.png",
@@ -412,7 +412,7 @@
       "title": "A Carpenter’s Approach to Teaching Python",
       "description": "Using evidence from Data and Software Carpentry’s training impact surveys, this presentation explores training as a way to onboard individuals to use Python. Attendees will walk away with a perspective on training approaches and a feeling of empowerment to build a diverse Python community through training. The only prerequisite knowledge you need is your own desire to achieve equity in the Python community.",
       "time": "4:30pm- 5:20pm",
-      "location": "The Iron Yard",
+      "location": "The Iron Yard 1ST FL",
       "track": "Speaker's Choice",
       "speaker": {
         "headshot": "http://flpy.org/wp-content/uploads/2017/09/kari-circle.png",
