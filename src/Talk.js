@@ -51,7 +51,9 @@ class Talk extends React.Component {
                             <Thumbnail source={img} style={styles.thumb}/>
                             <View style={styles.speakerNameContainer}>
                                 <Text style={styles.speakerName}>By {talk.speaker.name}</Text>
-                                <Text note>{talk.track} | {talk.time} | {talk.location}</Text>
+                                <Text note>
+                                    {talk.track} | {talk.time} | {talk.location}
+                                </Text>
                             </View>
                         </View>
                         {this.renderFavoriteBtn(talk)}
@@ -96,7 +98,9 @@ const styles = StyleSheet.create({
         marginTop: 10
     },
     speakerNameContainer: {
-        justifyContent: 'center'
+        justifyContent: 'center',
+        flexWrap: 'wrap',
+        flex: 1
     },
     lastUpdated: {
         backgroundColor: colors.cardDefaultBg,
