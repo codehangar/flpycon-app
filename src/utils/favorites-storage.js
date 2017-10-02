@@ -21,7 +21,7 @@ export async function setFavorite(talkId) {
         const allFavorites = JSON.parse(allFavoritesStr) || {};
         allFavorites[talkId] = !allFavorites[talkId];
         await setItem(storageKeys.FAVORITES, JSON.stringify(allFavorites));
-        return allFavorites[talkId] ? 'Saved to MyPycon Agenda!' : 'Removed from MyPycon Agenda';
+        return allFavorites[talkId] ? 'Saved to MyPycon!' : 'Removed from MyPycon';
     } catch (error) {
         console.error('FavoritesStorage error: ' + error.message);
         return error.message;
