@@ -18,7 +18,7 @@ import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view
 
 class Talk extends React.Component {
     static navigationOptions = ({ navigation, screenProps }) => ({
-        title: `Talk Detailsss`,
+        title: `Talk Details`,
         headerBackTitle: null,
         headerTintColor: '#efa320',
         headerTitleStyle: { color: null }
