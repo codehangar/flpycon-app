@@ -4,6 +4,7 @@ import { Root, Drawer, View, Icon, Text, H3 } from 'native-base/src';
 import { StackNavigator, DrawerNavigator, DrawerItems } from 'react-navigation';
 import Feed from './Feed';
 import Talk from './Talk';
+import Slot from './Slot';
 import Agenda from './Agenda';
 import About from './About';
 import Contact from './Contact';
@@ -18,7 +19,8 @@ const FeedNavigator = StackNavigator({
 });
 
 const AgendaNavigator = StackNavigator({
-    Agenda: { screen: Agenda }
+    Agenda: { screen: Agenda },
+    Slot: { screen: Slot }
 });
 
 const ContactNavigator = StackNavigator({

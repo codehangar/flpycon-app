@@ -39,7 +39,7 @@ class Agenda extends React.Component {
 
     renderList = () => {
         if (this.props.agenda.length) {
-            return this.props.agenda.map((item, i) => <AgendaListItem key={i} item={item}/>);
+            return this.props.agenda.map((item, i) => <AgendaListItem key={i} item={item} navigation={this.props.navigation}/>);
         }
         if (!this.props.isLoading) {
             return (

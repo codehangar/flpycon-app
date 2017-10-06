@@ -13,9 +13,13 @@ class AgendaListItem extends React.PureComponent {
     };
 
     render() {
+        const navToSlot = () => {
+            console.log('SLOT');
+            this.props.navigation.navigate('Slot', { slotId: this.props.item.id });
+        };
         return (
             <CHCard>
-                <CHCardItem row>
+                <CHCardItem row button onPress={navToSlot}>
                     <CHBody>
                         <Text style={styles.title}>{this.props.item.title}</Text>
                         <Text note>{this.props.item.location}</Text>
