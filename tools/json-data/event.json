@@ -295,22 +295,14 @@
       "location": "Canvs 1ST FL",
       "track": "Web",
       "speaker": {
-        "headshot": "http://flpy.org/wp-content/uploads/2017/09/head_shot-Cecil-Phillip-e1506536786517.png",
-        "name": "Cecil Phillip",
-        "title": "Cloud Developer Advocate",
-        "companyName": "",
+      "headshot": "http://flpy.org/wp-content/uploads/2017/10/Catherine-Holloway-e1507247982747.png",
+      "name": "Catherine Holloway",
+      "title": "Snooping on Digital Electronics with Machine Learning",
+      "companyName": "",
         "links": [
           {
-            "type": "Twitter",
-            "url": "https://twitter.com/cecilphillip"
-          },
-          {
-            "type": "Web",
-            "url": "http://cecilphillip.com/"
-          },
-          {
-            "type": "Github",
-            "url": "https://github.com/cecilphillip"
+           "type": "Twitter",
+           "url": "https://twitter.com/femion"
           }
         ]
       }
@@ -436,22 +428,26 @@
     {
       "title": "Check in & breakfast",
       "time": "8:00am",
-      "location": "Canvs Kitchen"
+      "location": "Canvs Kitchen",
+      "description": "Enter/Register through The Iron Yard. Food located in Canvs. Panera’s, 8:00AM - 8:45AM"
     },
     {
       "title": "Keynote",
       "time": "9:00am",
-      "location": "Location TBD"
+      "location": "Location TBD",
+      "description": "Software Craftsmanship\n\nSince his first introduction Apple to II BASIC in the 4th grade, Dave Adsit enjoyed programming, but when he was introduced to TDD, his passion for code was really ignited.\n In the years since, he has worked to help build teams that build well tested software. Though many developers prefer to be working on green field projects, Dave finds pleasure in helping a team rescue a ball of mud. As an active member of the local .NET and Software Craftsmanship communities, he has spoken at ThatConference, SATURN, local Code Camps and user groups about strategies for improving teams and code bases. Currently, he works as the Lead Architect at Pluralsight and blogs intermittently at codeobsession.blogspot.com."
     },
     {
       "title": "Talks Begin",
       "time": "10:00am",
-      "location": ""
+      "location": "",
+      "description:": ""
     },
     {
       "title": "Lunch",
       "time": "12:00pm",
-      "location": "Location TBD"
+      "location": "The Iron Yard",
+      "description": "Jersey Mike’s Subs, with vegetarian options."
     },
     {
       "title": "Talks Resume",
@@ -461,22 +457,26 @@
     {
       "title": "Break",
       "time": "3:00pm",
-      "location": ""
+      "location": "",
+      "description": "Take a moment to relax, refresh on coffee and get to know your fellow attendees. Maybe even speakers. They’re people too."
     },
     {
       "title": "Talks Resume",
       "time": "3:15pm",
-      "location": ""
+      "location": "",
+      "description": ""
     },
     {
-      "title": "Final Remarks",
+      "title": "Closing Keynote",
       "time": "4:45pm",
-      "location": "Location TBD"
+      "location": "Location TBD",
+      "description": "Programming for Good:\n How can the Python community affect change for a more sustainable future?\n\nPaige Bailey is a Developer Advocate specializing in Data Visualization, Machine Learning, and Artificial Intelligence. Prior to joining Microsoft, Paige was employed for five years as a data scientist and geophysical application developer in the energy industry (Chevron).\n Languages of choice include Python, R, and SQL; and she’s always down for a jam session on sustainable energy, STEM education reform, and using data science products to empower local governments."
     },
     {
       "title": "Bar Slither",
       "time": "5:00pm",
-      "location": "Location TBD"
+      "location": "Brewers",
+      "description": "Join your new best PyCon friends in a tour of the city’s best local bars starting at Orange County Brewers at 131 N. Orange Avenue Orlando, FL 32801 all within walking distance of the venu"
     }
   ]
 }
