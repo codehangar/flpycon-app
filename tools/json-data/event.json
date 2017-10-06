@@ -295,22 +295,14 @@
       "location": "Canvs 1ST FL",
       "track": "Web",
       "speaker": {
-        "headshot": "http://flpy.org/wp-content/uploads/2017/09/head_shot-Cecil-Phillip-e1506536786517.png",
-        "name": "Cecil Phillip",
-        "title": "Cloud Developer Advocate",
-        "companyName": "",
+      "headshot": "http://flpy.org/wp-content/uploads/2017/10/Catherine-Holloway-e1507247982747.png",
+      "name": "Catherine Holloway",
+      "title": "Snooping on Digital Electronics with Machine Learning",
+      "companyName": "",
         "links": [
           {
-            "type": "Twitter",
-            "url": "https://twitter.com/cecilphillip"
-          },
-          {
-            "type": "Web",
-            "url": "http://cecilphillip.com/"
-          },
-          {
-            "type": "Github",
-            "url": "https://github.com/cecilphillip"
+           "type": "Twitter",
+           "url": "https://twitter.com/femion"
           }
         ]
       }
