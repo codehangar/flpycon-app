@@ -49,14 +49,14 @@ class MyPycon extends React.Component {
     }
 
     renderAgendaItem = (item, i) => {
-        if (item.id) {
+        if (item.id && item.speaker) {
             return (
                 <TalkListItem key={i} talk={item} favorites={this.props.favorites}
                               navigation={this.props.navigation} saveFavorite={this.props.saveFavorite}/>
             );
         }
         return (
-            <AgendaListItem key={i} item={item}/>
+            <AgendaListItem key={i} item={item} navigation={this.props.navigation}/>
         )
     };
 
