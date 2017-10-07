@@ -33,7 +33,8 @@ const AboutNavigator = StackNavigator({
 
 const MyPyconNavigator = StackNavigator({
     MyPycon: { screen: MyPycon },
-    Talk: { screen: Talk }
+    Talk: { screen: Talk },
+    Slot: { screen: Slot }
 }, {
     initialRouteName: 'MyPycon'
 });

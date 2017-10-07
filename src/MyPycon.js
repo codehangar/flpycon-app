@@ -56,7 +56,7 @@ class MyPycon extends React.Component {
             );
         }
         return (
-            <AgendaListItem key={i} item={item}/>
+            <AgendaListItem key={i} item={item} navigation={this.props.navigation}/>
         )
     };
 
