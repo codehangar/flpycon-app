@@ -288,16 +288,15 @@
       }
     },
     {
-      "id": "azure",
-      "title": "Running Python Web Apps…. on Azure?",
-      "description": "Python on Microsoft Azure? You’ve got to be kidding me right? Nobody does that!\n\nIn today’s world, that couldn’t be further from the truth. Along with it’s investments in open source, Microsoft is making Azure a great platform for running apps.. period. In this talk, you’ll be introduced to a few of the services available in Azure that you can leverage for building out your web applications today. You’ll see how easily you can get your web app running in the cloud, connected to a NoSQL database, and integrating with a host of other useful services.\n\nThere is quite a bit available for Python Developers in Azure. Join me to get a taste of what’s possible.",
+      "id": "snooping",
+      "title": "Snooping on Digital Electronics with Machine Learning",
+      "description": "Ever wondered what the chips in your electronics are saying? I trained a classifier that can decode signals based on their tapped-in oscilloscope voltage traces. Assuming no knowledge of machine learning, I’ll cover which classifiers worked and which didn’t, and demonstrate some snooping.",
       "time": "3:20pm- 4:10pm",
       "location": "Canvs 1ST FL",
       "track": "Web",
       "speaker": {
       "headshot": "http://flpy.org/wp-content/uploads/2017/10/Catherine-Holloway-e1507247982747.png",
       "name": "Catherine Holloway",
-      "title": "Snooping on Digital Electronics with Machine Learning",
       "companyName": "",
         "links": [
           {
