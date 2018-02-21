@@ -1,6 +1,14 @@
-# react-native-rockstarter
-A boilerplate from Code Hangar for getting started with react native
+# FL Pycon 2017
+Florida PyCon is Florida’s first and only regional Python language conference, hosted in Orlando, Florida.
 
+Store Links:   
+
+- https://play.google.com/store/apps/details?id=io.codehangar.flpycon_app
+- https://itunes.apple.com/us/app/fl-pycon/id1287404908?mt=8&ign-mpt=uo%3D4
+
+![](https://is3-ssl.mzstatic.com/image/thumb/Purple118/v4/53/19/cf/5319cfe8-227d-5442-3dc7-204750c5dd52/pr_source.png/230x0w.png)
+![](https://is1-ssl.mzstatic.com/image/thumb/Purple118/v4/91/1d/87/911d8711-ef7f-d6db-6df8-915d2e16da64/pr_source.png/230x0w.png)
+![](https://is1-ssl.mzstatic.com/image/thumb/Purple128/v4/42/fb/e7/42fbe760-adba-5d31-b2a9-c198ecabf22d/pr_source.png/230x0w.png)
 ---
 
 ## Running App Via Expo
